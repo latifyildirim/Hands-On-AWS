@@ -157,4 +157,4 @@ systemctl enable httpd
 22. Connect the Apache Web Server from the local terminal with `curl` command.
 
 
-curl http://ec2-3-15-183-78.us-east-2.compute.amazonaws.com
+curl http://ec2-3-15-183-78.us-east-2.compute.amazonaws.com 
