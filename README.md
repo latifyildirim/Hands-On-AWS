@@ -11,3 +11,6 @@ AWS Hands On Studies  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7
 
 ### 🔖 [2022_12_15_Apache]((https://github.com/latifyildirim/aws-hands-on/blob/main/2022_12_15_Apache/ec2-apache-install.sh))
 The purpose of this hands-on tutorial is how to Install Apache Web Server on EC2 Linux 2
+
+### 🔖 [2022_12_16_IAM]((https://github.com/latifyildirim/aws-hands-on/blob/main/2022_12_16_IAM/IAM%20.md))
+Purpose of the this hands-on training is to give basic understanding of how to use IAM and IAM components.
