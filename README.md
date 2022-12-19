@@ -14,3 +14,6 @@ The purpose of this hands-on tutorial is how to Install Apache Web Server on EC2
 
 ### 🔖 [2022_12_16_IAM](https://github.com/latifyildirim/aws-hands-on/blob/main/2022_12_16_IAM/IAM%20.md)
 Purpose of the this hands-on training is to give basic understanding of how to use IAM and IAM components.
+
+### 🔖 [2022_12_17_Volumes](https://github.com/latifyildirim/aws-hands-on/tree/main/2022_12_17_Volumes)
+The purpose of this hands-on training is to comprehend volume creation, merging and deletion operations.
