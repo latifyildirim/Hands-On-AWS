@@ -19,8 +19,6 @@
    19  ls
    20  clear
    21  ls
-   22  $ openssl dgst -sha256 -binary chunkaa > hash1
-   23  $ openssl dgst -sha256 -binary chunkab > hash2
    24  openssl dgst -sha256 -binary chunkaa > hash1
    25  openssl dgst -sha256 -binary chunkab > hash2
    26  openssl dgst -sha256 -binary chunkac > hash3
