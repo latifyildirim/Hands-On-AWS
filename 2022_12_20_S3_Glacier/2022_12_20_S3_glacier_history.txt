@@ -1,0 +1,49 @@
+    1  aws s3 ls
+    2  aws awaws help
+    3  clear
+    4  aws help
+    5  aws s3 help
+    6  aws s3 ls 
+    7  aws s3 ls s3://latifaws
+    8  clear
+    9  aws glacier create-vault --account-id - --vault-name egitimvault
+   10  dd if=/dev/urandom of=largefile bs=3145728 count=1
+   11  ls
+   12  split --bytes=1048576 --verbose largefile chunk
+   13  ls
+   14  aws glacier initiate-multipart-upload --account-id - --archive-description "multipart upload test" --part-size 1048576 --vault-name egitimvault
+   15  UPLOADID="t4XA2JN7qPIa5sdAUCvjoX5G0y7krjlAgDOwVxKXBQcVYzzlsB3N1fUr1YgtujyWhB9veokwo9fO_zwygmci_QwNASs2"
+   16  aws glacier upload-multipart-part --upload-id $UPLOADID --body chunkaa --range 'bytes 0-1048575/*' --account-id - --vault-name egitimvault
+   17  aws glacier upload-multipart-part --upload-id $UPLOADID --body chunkab --range 'bytes 1048576-2097151/*' --account-id - --vault-name egitimvault
+   18  aws glacier upload-multipart-part --upload-id $UPLOADID --body chunkac --range 'bytes 2097152-3145727/*' --account-id - --vault-name egitimvault
+   19  ls
+   20  clear
+   21  ls
+   22  $ openssl dgst -sha256 -binary chunkaa > hash1
+   23  $ openssl dgst -sha256 -binary chunkab > hash2
+   24  openssl dgst -sha256 -binary chunkaa > hash1
+   25  openssl dgst -sha256 -binary chunkab > hash2
+   26  openssl dgst -sha256 -binary chunkac > hash3
+   27  ls
+   28  cat hash1 has2 > hash12
+   29  cat hash1 hash2 > hash12
+   30  cat hash12 hash3 > hash123
+   31  cat hash123
+   32  cat hash1 has2 > hash12
+   33  cat hash1 hash2 > hash12
+   34  cat hash12
+   35  clear
+   36  ls
+   37  rm hash123
+   38  ls
+   39  openssl dgst -sha256 -binary hash12 > hash12hash
+   40  cat hash12hash hash3 > hash123
+   41  openssl dgst -sha256 hash123
+   42  openssl dgst -sha256 -binary hash12 
+   43  TREEHASH=0262311bfb70d7402ae84b1d153164d78d2ae7b1a6c9c6d3eae4a4669220d2f0
+   44  aws glacier complete-multipart-upload --checksum $TREEHASH --archive-size 3145728 --upload-id $UPLOADID --account-id - --vault-name egitimvault
+   45  ls
+   46  cat hash2 hash3 > hash 23
+   47  cat hash2 hash3 > hash23
+   48  hostory > 2022_12_20_S3_glacier_history.txt
+   49  history > 2022_12_20_S3_glacier_history.txt
