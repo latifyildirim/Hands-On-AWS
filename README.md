@@ -20,3 +20,6 @@ The purpose of this hands-on training is to comprehend volume creation, merging 
 
 ### 🔖 [2022_12_18_S3_Replication](https://github.com/latifyildirim/aws-hands-on/tree/main/2022_12_18_S3)
 Purpose of the this hands-on training is to review how to to create a S3 bucket, configure S3 to host static website, manage lifecycle of objects and to implement bucket replication.
+
+### 🔖 [2022_12_18_S3_Replication](https://github.com/latifyildirim/aws-hands-on/tree/main/2022_12_18_S3)
+Purpose of the this hands-on training is to review how to to create a S3 bucket, configure S3 to host static website, manage lifecycle of objects and to implement bucket replication.
