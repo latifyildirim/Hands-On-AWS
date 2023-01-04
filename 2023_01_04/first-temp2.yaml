@@ -2,19 +2,19 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: |
   heyyyyyyyyyyyyy bunu ilk  ornek olarak yapiyoruz
 Resources:
-  Cfn-Instance: 
+  CfnInstance: 
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0b5eea76982371e91
       InstanceType: t2.micro
       KeyName: firstkey 
       SecurityGroups:
-        - !Ref Cfn-Sec-Group
+        - !Ref CfnSecGroup
       Tags:
         - Key: Name
           Value: Cfn-Instance
 
-  Cfn-Sec-Group:
+  CfnSecGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Enables SSH. # Required 
