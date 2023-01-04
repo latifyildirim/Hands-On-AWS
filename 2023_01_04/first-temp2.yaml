@@ -1,23 +1,23 @@
-AWSTemplateFormatVersion: 2010-09-09
+AWSTemplateFormatVersion: "2010-09-09"
 Description: |
-  This temp launches an EC2 instance with a SG which enables SSH. 
+  heyyyyyyyyyyyyy bunu ilk  ornek olarak yapiyoruz
 Resources:
-  Cfn-Instance:
+  Cfn-Instance: 
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0b5eea76982371e91
       InstanceType: t2.micro
-      KeyName: firstkey
+      KeyName: firstkey 
       SecurityGroups:
-        - !Ref Cfn-Sec-Gr
+        - !Ref Cfn-Sec-Group
       Tags:
         - Key: Name
-          Value: CFN-Instance
+          Value: Cfn-Instance
 
-  Cfn-Sec-Gr:
+  Cfn-Sec-Group:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Enables SSH. # Required
+      GroupDescription: Enables SSH. # Required 
       SecurityGroupIngress:
         IpProtocol: tcp
         FromPort: 22
