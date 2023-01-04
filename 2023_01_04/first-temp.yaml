@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  asdasd
+
+Resources:
+  Latif-Instance: 
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: "String" 
+      InstanceType: "String" 
+      KeyName: "String" 
+      SecurityGroups:
+        SecurityGroups 
+      Tags:
+        Tags 
