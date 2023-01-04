@@ -6,10 +6,10 @@ Resources:
   Latif-Instance: 
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: "String" 
-      InstanceType: "String" 
-      KeyName: "String" 
+      ImageId: ami-0b5eea76982371e91
+      InstanceType: t2.micro
+      KeyName: firstkey 
       SecurityGroups:
-        SecurityGroups 
+        launch-wizard-1
       Tags:
         Tags 
