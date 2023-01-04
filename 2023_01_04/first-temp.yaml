@@ -1,13 +1,24 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description:  heyyyyyyyyyyyyy bu ilk ornek
 Resources:
-  Latif-Instance: 
+  Cfn-Instance: 
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0b5eea76982371e91
       InstanceType: t2.micro
       KeyName: firstkey 
       SecurityGroups:
-        launch-wizard-1
+        - !Ref Cfn-Sec-Group
       Tags:
-        Tags 
+        - Key: Name
+          Value: Cfn-Instance
+
+  Cfn-Sec-Group:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enables SSH # Required 
+      SecurityGroupIngress:
+        IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
