@@ -1,7 +1,5 @@
-AWSTemplateFormatVersion: 2010-09-09
-Description: |
-  asdasd
-
+AWSTemplateFormatVersion: "2010-09-09"
+Description:  heyyyyyyyyyyyyy bu ilk ornek
 Resources:
   Latif-Instance: 
     Type: AWS::EC2::Instance
