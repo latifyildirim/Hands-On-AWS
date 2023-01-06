@@ -6,6 +6,7 @@ sudo cp /etc/fstab /etc/fstab.bak
 # Open /etc/fstab file and add the following info to the existing.(UUID's can also be used)
 sudo nano /etc/fstab  # sudo vim /etc/fstab   >>> for vim
 
+
 /dev/xvdf       /mnt/2nd-vol        ext4    defaults,nofail        0       0
 /dev/xvdg1      /mnt/3rd-vol-part1   ext4   defaults,nofail        0       0
 /dev/xvdg2      /mnt/3rd-vol-part2   ext4   defaults,nofail        0       0
@@ -28,3 +29,9 @@ ls -lh /mnt/3rd-vol-part2/
 # https://www.tecmint.com/fdisk-commands-to-manage-linux-disk-partitions/
 
 ##################-----DON'T FORGET TO TERMINATE YOUR INSTANCES AND DELETE VOLUMES-----####################
+
+
+
+/dev/xvdf       3.9G   24K  3.7G   1% /mnt/2nm-vol
+/dev/xvdg1      2.0G   24K  1.8G   1% /mnt/3rd-vol-part1
+/dev/xvdg2      5.9G   24K  5.6G   1% /mnt/3rd-vol-part
