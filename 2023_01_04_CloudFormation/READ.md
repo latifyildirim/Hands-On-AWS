@@ -1,8 +1,8 @@
 YAML & JSON Essentials 
 Introduction to Cloudformation
 
-01/09/2022
-Guile
+01/09/2023
+Latif
 
 VS Code Extensions for YAML and Cloudformation:
 
