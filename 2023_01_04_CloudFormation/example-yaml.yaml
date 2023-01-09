@@ -2,7 +2,7 @@
 # Second comment
 ---
 key: value
-instructor: guile
+instructor: latif
 ---
 
 # List of strings
@@ -24,7 +24,7 @@ instructors:
 # An employee record
 
 instructor: 
-  name: guile
+  name: latif
   job: solutions-arct
   department: aws
   age: 37
@@ -33,7 +33,7 @@ instructor:
 # Employee list
 
 instructors: 
- - name: guile
+ - name: latif
    job: solutions-arct
    department: aws
    age: 37
@@ -46,7 +46,7 @@ instructors:
 ---
 
 -  instructor1: 
-      name: guile
+      name: latif
       job: solutions-arct
       department: aws
       age: 37
