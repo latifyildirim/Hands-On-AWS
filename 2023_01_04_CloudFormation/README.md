@@ -6,21 +6,25 @@ Latif
 
 VS Code Extensions for YAML and Cloudformation:
 
-- CloudFormation Snippets
-  dsteenman.cloudformation-yaml-snippets
-  Danny Steenman
+- CloudFormation Snippets\
+  dsteenman.cloudformation-yaml-snippets\
+  Danny Steenman\
+  https://marketplace.visualstudio.com/items?itemName=dsteenman.cloudformation-yaml-snippets
 
-- CloudFormation Linter
-  kddejong.vscode-cfn-lint
-  kddejong
+- CloudFormation Linter\
+  kddejong.vscode-cfn-lint\
+  kddejong\
+  https://marketplace.visualstudio.com/items?itemName=kddejong.vscode-cfn-lint
 
-- YAML :heart: JSON
-  hilleer.yaml-plus-json
-  Daniel Hillmann
+- YAML :heart: JSON\
+  hilleer.yaml-plus-json\
+  Daniel Hillmann\
+  https://marketplace.visualstudio.com/items?itemName=hilleer.yaml-plus-json
 
-- YAML
-  redhat.vscode-yaml
-  Red Hat
+- YAML\
+  redhat.vscode-yaml\
+  Red Hat\
+  https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
   
   
  
