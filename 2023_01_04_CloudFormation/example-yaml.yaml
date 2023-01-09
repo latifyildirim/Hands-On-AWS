@@ -6,17 +6,17 @@ instructor: latif
 ---
 
 # List of strings
-- guile
+- latif
 - osvaldo
 - james
 
 ---
 
-[guile, osvaldo, james]
+[latif, osvaldo, james]
 
 ---
 instructors: 
- - guile
+ - latif
  - osvaldo
  - james
 
@@ -68,7 +68,7 @@ instructor:
 #Multiple lines values
 
 example1: |  # Keeps the block
-  Guile M.
+  latif M.
   Solutions Architect
   Clarusway LLC.
 example2: > # This text will be a sentence
