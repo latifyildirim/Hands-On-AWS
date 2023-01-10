@@ -1,4 +1,5 @@
-https://docs.aws.amazon.com/cli/latest/userguide/cli-services-glacier.html
+## GLACIER Adimlari
+ - https://docs.aws.amazon.com/cli/latest/userguide/cli-services-glacier.html
 
 
 0: komut satırından egitimvault diye bir vault yarat
