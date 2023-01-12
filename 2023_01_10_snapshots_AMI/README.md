@@ -252,4 +252,4 @@ Enable Policy
 
 - That's it, you're DLM policy is created. Check ıt from console. 
 
-- Delete the policy. 
+- Delete the policy.
