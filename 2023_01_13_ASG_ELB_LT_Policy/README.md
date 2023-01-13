@@ -256,7 +256,7 @@ echo "<html>
 <body>
     <h1>Testing Application Load Balancer</h1>
     <h2>Congratulations! You have created an instance from Launch Template</h2>
-    <h3>This web server is launched from the launch template by Latif</h3>
+    <h3>This web server is launched from the launch template by Bakalim 3.verison u otomatik aldi mi?</h3>
     <p>This instance is created at <b>$DATE_TIME</b></p>
     <p>Private IP address of this instance is <b>$PRIVATE_IP</b></p>
     <p>Public IP address of this instance is <b>$PUBLIC_IP</b></p>
