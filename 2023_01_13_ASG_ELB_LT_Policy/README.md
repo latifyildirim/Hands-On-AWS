@@ -403,7 +403,7 @@ Scaling Policy Name : First Scaling Policy-Add
 
 - Select Metric ---> `EC2` --> By Auto Scaling Group --> `First-AS-Group` and CPUUtilization
 
-- Metric --> Period: 1 minute
+- Metric --> Period: 5 minute
 
 - Conditions -->
 
@@ -459,7 +459,7 @@ Scaling Policy Name : First Scaling Policy-Remove
 
 - Select Metric ---> `EC2` --> By Auto Scaling Group --> `First-AS-Group` and CPUUtilization
 
-- Metric --> Period: 1 minute
+- Metric --> Period: 5 minute
 
 - Conditions -->
 
