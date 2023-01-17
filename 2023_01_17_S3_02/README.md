@@ -125,7 +125,7 @@ cat.jpg
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::DON'T FORGET TO CHANGE ME/*"
+            "Resource": "arn:aws:s3:::source.replica.latif/*"
         }
     ]
 }
