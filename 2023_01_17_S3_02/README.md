@@ -162,7 +162,7 @@ PS: Please, do not forget to select "US East (Ohio)" as Region
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::source.replica.latif/*"
+            "Resource": "arn:aws:s3:::destination.cross.region.replica.latif/*"
         }
     ]
 }
@@ -199,7 +199,7 @@ PS: Please, do not forget to select "US East (Ohio)" as Region
                 "s3:GetObjectVersionTagging"
             ],
             "Effect": "Allow",
-            "Resource": "arn:aws:s3:::latif.cross.replication.iam.policy/*"
+            "Resource": "arn:aws:s3:::destination.cross.region.replica.latif/*"
         }
     ]
 }
