@@ -208,9 +208,9 @@ PS: Please, do not forget to select "US East (Ohio)" as Region
 - Enter the followings as policy name and description.
 
 ```text
-Name            : yourname.cross.replication.iam.policy
+Name            : latif.cross.replication.iam.policy
 
-Description     : yourname.cross.replication.iam.policy
+Description     : latif.cross.replication.iam.policy
 ```
 
 - Click `create policy`.
