@@ -33,7 +33,7 @@ At the end of the this hands-on training, students will be able to;
 ## Part 1 - Creating S3 Bucket for Lifecycle Management and setting Lifecycle Management
 
 
-- Create a new bucket named `pet.clarusway.lifecycle` with following properties. Bucket name has to be unique.
+- Create a new bucket named `pet.latif.lifecycle` with following properties. Bucket name has to be unique.
 
 ```text
 Allow all public access   : UNCHECKED(PUBLIC) and Acknowledge the warning. 
@@ -43,7 +43,7 @@ Default encryption        : None
 Object lock               : Disabled
 ```
 
-- Click the S3 bucket `pet.clarusway.lifecycle` and upload following files.
+- Click the S3 bucket `pet.latif.lifecycle` and upload following files.
 
 ```text
 index.html
@@ -91,7 +91,7 @@ Click save
 
 - Open S3 Service from AWS Management Console.
 
-- Create a bucket of `source.replica.clarusway` with following properties,
+- Create a bucket of `source.replica.latif` with following properties,
 
 ```text
 Region                      : us east-1 (N.Virginia)
@@ -104,7 +104,7 @@ Object lock                 : Disabled
 PS: Please, do not forget to select "US East (N.Virginia)" as Region. Because we will use Cross Region Replica.
 ```
 
-- Click the S3 bucket `source.replica.clarusway` and upload following files.
+- Click the S3 bucket `source.replica.latif` and upload following files.
 
 ```text
 index.html
@@ -135,7 +135,7 @@ cat.jpg
 
 ### Step 2 - Create Destination Bucket
 
-- Create a new bucket named `destination.cross.region.replica.clarusway` with following properties.
+- Create a new bucket named `destination.cross.region.replica.latif` with following properties.
 
 ```text
 Region                    : us-east-2 (**Ohio)
@@ -249,7 +249,7 @@ Role Description    : latif.cross.replication.iam.role
 
 - Go to S3 bucket on AWS Console.
 
-- Select `source.replica.clarusway`.
+- Select `source.replica.latif`.
 
 - Select `Management` >>`Replication Rules` >> `Create Replication Rule`
 
@@ -261,7 +261,8 @@ Role Description    : latif.cross.replication.iam.role
    - Choose a rule scope as "This rule applies to all objects in the bucket"
 4. Destination                      : 
    - Choose a bucket in this account
-   - Bucket name : destination.cross.region.replica.clarusway
+   - Bucket name : destination.cross.region.replica.latif
+
 5. IAM role                         : yourname.cross.replication.iam.role
 6. Encryption                       : Unchecked
 7. Destination Storage Class        : Unchecked
@@ -281,9 +282,9 @@ Role Description    : latif.cross.replication.iam.role
 
 ```
 
-- Go to `source.replica.clarusway` bucket and upload `index.html` and `cat.jpg` again.
+- Go to `source.replica.latif` bucket and upload `index.html` and `cat.jpg` again.
 
-- Go to `destination.cross.region.replica.clarusway` bucket, copy `Endpoint` and paste to browser.
+- Go to `destination.cross.region.replica.latif` bucket, copy `Endpoint` and paste to browser.
 
 - Show the website is replicated from source bucket.
 
@@ -293,7 +294,7 @@ Role Description    : latif.cross.replication.iam.role
 
 - Go to S3 bucket on AWS Console
 
-- Select `source.replica.clarusway`.
+- Select `source.replica.latif`.
 
 - Create a folder named `kitten`.
 
@@ -308,7 +309,8 @@ c. Source Bucket                    :
    - tag                            : keep it as is
 d. Destination                      : 
    - Choose a bucket in this account
-   - Bucket name : destination.cross.region.replica.clarusway
+   - Bucket name : destination.cross.region.replica.latif
+
 e. IAM role                         : yourname.cross.replicationiam.   role
 f. Encryption                       : Unchecked
 g. check Storage class and select "One zone IA"
@@ -324,19 +326,19 @@ Review and click save
 
 ### Step 2 - Testing (Prefix)
 
-- Go to `source.replica.clarusway` bucket and upload `outside_folder.txt`.
+- Go to `source.replica.latif` bucket and upload `outside_folder.txt`.
 
-- Go to `destination.cross.region.replica.clarusway` bucket and show that the`outside_folder.txt` is not replicated in the bucket.
+- Go to `destination.cross.region.replica.latif` bucket and show that the`outside_folder.txt` is not replicated in the bucket.
 
-- This time go to `source.replica.clarusway` bucket >> `kitten` folder and upload `inside_kitten_folder.txt`.
+- This time go to `source.replica.latif` bucket >> `kitten` folder and upload `inside_kitten_folder.txt`.
 
-- Go to `destination.cross.region.replica.clarusway` bucket show that `kitten` folder has been replicated automatically due to replication rule and inside the folder there is `inside_kitten_folder.txt file`.
+- Go to `destination.cross.region.replica.latif` bucket show that `kitten` folder has been replicated automatically due to replication rule and inside the folder there is `inside_kitten_folder.txt file`.
 
 ### Step 3 - Configuring with tag
 
 - Go to S3 bucket on AWS Console
 
-- Select `source.replica.clarusway`.
+- Select `source.replica.latif`.
 
 - Select `Management` >> `Replication rules` >> `Create replication rule`
 
@@ -349,7 +351,8 @@ c. Source Bucket                    :
    - tag                            : Key: Name --- Value: cat
 d. Destination                      : 
    - Choose a bucket in this account
-   - Bucket name : destination.cross.region.replica.clarusway
+   - Bucket name : destination.cross.region.replica.latif
+
 e. IAM role                         : yourname.cross.replicationiam.   role
 f. Encryption                       : Unchecked
 g. check Storage class and select "One zone IA"
@@ -362,11 +365,11 @@ Review and click save
 
 ### Step 2 - Testing (Tag)
 
-- Go to `source.replica.clarusway` bucket and direct upload `tag_file.txt`.
+- Go to `source.replica.latif` bucket and direct upload `tag_file.txt`.
 
-- Go to `destination.cross.region.replica.clarusway` bucket and show that the `tag_file.txt` is not replicated in the bucket.
+- Go to `destination.cross.region.replica.latif` bucket and show that the `tag_file.txt` is not replicated in the bucket.
 
-- This time go to `source.replica.clarusway` bucket, and upload the `tag_file.txt` file with tag as `key:name` and `value:cat`;
+- This time go to `source.replica.latif` bucket, and upload the `tag_file.txt` file with tag as `key:name` and `value:cat`;
 
 ```text
 1. Select Add files
@@ -381,4 +384,4 @@ Review and click save
 3. Review and upload
 ```
 
-- Go to `destination.cross.region.replica.clarusway` bucket show that the `tag_file.txt` file is replicated.
+- Go to `destination.cross.region.replica.latif` bucket show that the `tag_file.txt` file is replicated.
