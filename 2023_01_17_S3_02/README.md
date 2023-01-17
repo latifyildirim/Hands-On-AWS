@@ -162,7 +162,7 @@ PS: Please, do not forget to select "US East (Ohio)" as Region
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::don't forget to change me/*"
+            "Resource": "arn:aws:s3:::source.replica.latif/*"
         }
     ]
 }
@@ -187,8 +187,8 @@ PS: Please, do not forget to select "US East (Ohio)" as Region
             ],
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:s3:::source.replica.clarusway(change me)",
-                "arn:aws:s3:::source.replica.clarusway(change me)/*"
+                "arn:aws:s3:::source.replica.latif",
+                "arn:aws:s3:::source.replica.latif/*"
             ]
         },
         {
