@@ -199,7 +199,7 @@ PS: Please, do not forget to select "US East (Ohio)" as Region
                 "s3:GetObjectVersionTagging"
             ],
             "Effect": "Allow",
-            "Resource": "arn:aws:s3:::destination.cross.region.replica.clarusway(change me)/*"
+            "Resource": "arn:aws:s3:::latif.cross.replication.iam.policy/*"
         }
     ]
 }
@@ -224,7 +224,7 @@ Use Case                    : S3
 
 - Click next.
 
-- Enter `yourname.cross.replication.iam.policy` in filter policies box and select the policy
+- Enter `latif.cross.replication.iam.policy` in filter policies box and select the policy
 
 - Click Next `Tag`
 
@@ -237,8 +237,8 @@ Keep it as default
 - Enter the followings as role name and description an review
 
 ```text
-Role Name           : yourname.cross.replication.iam.role
-Role Description    : yourname.cross.replication.iam.role
+Role Name           : latif.cross.replication.iam.role
+Role Description    : latif.cross.replication.iam.role
 ```
 
 - Click `create role`.
