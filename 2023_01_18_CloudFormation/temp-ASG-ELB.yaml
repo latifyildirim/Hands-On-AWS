@@ -1,7 +1,15 @@
 AWSTemplateFormatVersion: 2010-09-09
-# Description: |
-  
+Description: |
+  Bu tam anlamaiyla neredeyse ikinci Template
 Parameters: 
+  VPCParameter:
+    Description: Select your VPC
+    Type: AWS::EC2::VPC::Id
+  
+  SubnetParameter:
+    Description: Select at least 2 subnets. "En az 2 subnet sec"
+    Type: List<AWS::EC2::Subnet::Id> 
+
   InstanceTypeParameter:
     Description: Ec2 tipini sec bakalim
     Type: String
@@ -105,7 +113,7 @@ Resources:
       Port: 80
       Protocol: HTTP 
       UnhealthyThresholdCount: 3
-      VpcId: "String" # sonra eklicezz
+      VpcId: !Ref VPCParameter
   mySG:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -119,6 +127,11 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
-      VpcId: "String"  # add later
+      VpcId: !Ref VPCParameter
   
-# Outputs:
+Outputs:
+  Description: The DNSName of the backup load balancer
+  Value: !Join
+    - ''
+    - - 'http://'
+      - !GetAtt myALB.DNSName
