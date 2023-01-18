@@ -98,7 +98,7 @@ Region                      : us east-1 (N.Virginia)
 Block all public access     : UNCHECKED (PUBLIC)
 Versioning                  : ***ENABLE***
 Tagging                     : 0 Tags
-Default encryption          : Disabled
+Default encryption          : Enable
 Object lock                 : Disabled
 
 PS: Please, do not forget to select "US East (N.Virginia)" as Region. Because we will use Cross Region Replica.
@@ -142,7 +142,7 @@ Region                    : us-east-2 (**Ohio)
 Allow all public access   : UNCHECKED (PUBLIC)
 Versioning                : ***ENABLED***
 Tagging                   : 0 Tags
-Default encryption        : Disabled
+Default encryption        : Enable
 Object lock               : Disabled
 
 
