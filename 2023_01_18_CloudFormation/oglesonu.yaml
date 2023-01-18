@@ -39,6 +39,7 @@ Resources:
           </html>" > /var/www/html/index.html
           systemctl start httpd
           systemctl enable httpd
+          
 
   latifTG:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
