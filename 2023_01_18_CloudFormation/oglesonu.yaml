@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  
+Parameters: 
+  
+Mappings: 
+  
+Resources:
+  latifLT:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateData:
+        ImageId: "String"
+        InstanceType: "String"
+        KeyName: "String"
+        SecurityGroupIds:
+          -
+        UserData: "String"
+
+  latifTG:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties: 
+      HealthCheckIntervalSeconds: 10 
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 5 
+      Port: 80
+      Protocol: HTTP 
+      UnhealthyThresholdCount: 3
+      VpcId: "String"
+
+  latifSC:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SSH und HTTP # Required
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      VpcId: "String"
+
+  
+Outputs:
