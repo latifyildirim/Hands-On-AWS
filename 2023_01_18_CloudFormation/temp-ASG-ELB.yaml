@@ -16,7 +16,7 @@ Parameters:
     Default: t2.micro
     AllowedValues:
       - t2.micro
-      - t2.nano
+      - t2.small
       - t1.nano
       - t1.micro
   KeyPairParameter:
@@ -36,6 +36,49 @@ Mappings:
       AMI : "ami-06cd52961ce9f0d85"
   
 Resources:
+  myALB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties: 
+      SecurityGroups:
+        - !GetAtt mySG.GroupId 
+      Subnets: !Ref SubnetParameter 
+      Type: aplication
+
+  myListner:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties: 
+      DefaultActions: # Required
+        - Type: forward
+          TargetGroupArn: !Ref myTG
+      LoadBalancerArn: !Ref myALB # Required
+      Port: 80
+      Protocol: HTTP
+
+  myASG:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties: 
+      DesiredCapacity: "2" 
+      HealthCheckGracePeriod: 90
+      HealthCheckType: ELB 
+      LaunchTemplate:
+        LaunchTemplateId: !Ref myLT 
+        Version: 1
+      MaxSize: 3 # Required 
+      MinSize: 1 # Required 
+      TargetGroupARNs:
+        - !Ref myTG
+      VPCZoneIdentifier: !Ref SubnetParameter
+
+  myCPUPolicy:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties: 
+      AutoScalingGroupName: !Ref myASG
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification:
+            PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 60.0
+
   myLT:
     Type: AWS::EC2::LaunchTemplate
     Properties:
@@ -82,28 +125,7 @@ Resources:
           # start apache server
           systemctl start httpd
           systemctl enable httpd
-
-
-  myASG:
-    Type: AWS::AutoScaling::AutoScalingGroup
-    Properties: 
-      DesiredCapacity: "2" 
-      HealthCheckGracePeriod: 90
-      HealthCheckType: ELB 
-      LaunchTemplate:
-        LaunchTemplateId: "String"
-        LaunchTemplateName: "String"
-        Version: "String" 
-      MaxSize: "String" # Required
-      MetricsCollection:
-        MetricsCollection
-      MinSize: "String" # Required 
-      TargetGroupARNs:
-        TargetGroupARNs
-      TerminationPolicies:
-        TerminationPolicies
-      VPCZoneIdentifier:
-        VPCZoneIdentifier        
+      
   myTG:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties: 
@@ -114,6 +136,7 @@ Resources:
       Protocol: HTTP 
       UnhealthyThresholdCount: 3
       VpcId: !Ref VPCParameter
+
   mySG:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -130,8 +153,9 @@ Resources:
       VpcId: !Ref VPCParameter
   
 Outputs:
-  Description: The DNSName of the backup load balancer
-  Value: !Join
-    - ''
-    - - 'http://'
-      - !GetAtt myALB.DNSName
+  DNSofALB: 
+    Description: The DNSName of the backup load balancer
+    Value: !Join
+      - ''
+      - - 'http://'
+        - !GetAtt myALB.DNSName
