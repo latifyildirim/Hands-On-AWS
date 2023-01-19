@@ -17,11 +17,12 @@ Parameters:
     AllowedValues:
       - t2.micro
       - t2.nano
-      - t1.nano
+      - t2.nano
       - t1.micro
   KeyPairParameter:
     Description: KeyPair sec
     Type: AWS::EC2::KeyPair::KeyName 
+
 Mappings: 
   RegionImageMap: 
     us-east-1: 
@@ -36,6 +37,26 @@ Mappings:
       AMI : "ami-06cd52961ce9f0d85"
   
 Resources:
+    myASG:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties: 
+      DesiredCapacity: "2" 
+      HealthCheckGracePeriod: 90
+      HealthCheckType: ELB 
+      LaunchTemplate:
+        LaunchTemplateId: "String"
+        LaunchTemplateName: "String"
+        Version: "String" 
+      MaxSize: "String" # Required
+      MetricsCollection:
+        MetricsCollection
+      MinSize: "String" # Required 
+      TargetGroupARNs:
+        TargetGroupARNs
+      TerminationPolicies:
+        TerminationPolicies
+      VPCZoneIdentifier:
+        VPCZoneIdentifier     
   myLT:
     Type: AWS::EC2::LaunchTemplate
     Properties:
@@ -83,27 +104,7 @@ Resources:
           systemctl start httpd
           systemctl enable httpd
 
-
-  myASG:
-    Type: AWS::AutoScaling::AutoScalingGroup
-    Properties: 
-      DesiredCapacity: "2" 
-      HealthCheckGracePeriod: 90
-      HealthCheckType: ELB 
-      LaunchTemplate:
-        LaunchTemplateId: "String"
-        LaunchTemplateName: "String"
-        Version: "String" 
-      MaxSize: "String" # Required
-      MetricsCollection:
-        MetricsCollection
-      MinSize: "String" # Required 
-      TargetGroupARNs:
-        TargetGroupARNs
-      TerminationPolicies:
-        TerminationPolicies
-      VPCZoneIdentifier:
-        VPCZoneIdentifier        
+   
   myTG:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties: 
@@ -130,8 +131,9 @@ Resources:
       VpcId: !Ref VPCParameter
   
 Outputs:
-  Description: The DNSName of the backup load balancer
-  Value: !Join
-    - ''
-    - - 'http://'
-      - !GetAtt myALB.DNSName
+  DNSofALB:
+    Description: The DNSName of the backup load balancer
+    Value: !Join
+      - ''
+      - - 'http://'
+        - !GetAtt myALB.DNSName
