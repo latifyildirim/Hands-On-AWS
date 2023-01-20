@@ -3,21 +3,105 @@ Description: |
   
 Parameters: 
   
-Mappings: 
+  LatifVPCParameter:
+    Description: Bir VPC Sec
+    Type: AWS::EC2::VPC::Id
+  LatifKeyPairParameter:
+    Description: Bir Key Sec
+    Type: AWS::EC2::KeyPair::KeyName
+  InstanceTypeParameter:
+    Type: 'list<AWS::EC2::Instance::Id>'
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - m1.small
+      - m1.large
+    Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
   
+
+Mappings: 
+  RegionMap: 
+    us-east-1: 
+      HVM64 : "ami-0b5eea76982371e91"
+    us-west-1: 
+      HVM64 : "ami-0bdb828fd58c52235"
+    eu-west-1: 
+      HVM64 : "ami-047bb4163c506cd98"
+    ap-southeast-1: 
+      HVM64 : "ami-08569b978cc4dfa10"
+    ap-northeast-1: 
+      HVM64 : "ami-06cd52961ce9f0d85"
+
 Resources:
-  latifLT:
+  LatifASG:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AutoScalingGroupName: "String"
+      AvailabilityZones:
+        AvailabilityZones
+      CapacityRebalance: false
+      Context: "String"
+      Cooldown: "String"
+      DefaultInstanceWarmup: Number
+      DesiredCapacity: "String"
+      DesiredCapacityType: "String"
+      HealthCheckGracePeriod: Number
+      HealthCheckType: "String"
+      InstanceId: "String"
+      LaunchConfigurationName: "String"
+      LaunchTemplate:
+        LaunchTemplateId: "String"
+        LaunchTemplateName: "String"
+        Version: "String"
+      LifecycleHookSpecificationList:
+        LifecycleHookSpecificationList
+      LoadBalancerNames:
+        LoadBalancerNames
+      MaxInstanceLifetime: Number
+      MaxSize: "String" # Required
+      MetricsCollection:
+        MetricsCollection
+      MinSize: "String" # Required
+      MixedInstancesPolicy:
+      NewInstancesProtectedFromScaleIn: false
+      NotificationConfigurations:
+        NotificationConfigurations
+      PlacementGroup: "String"
+      ServiceLinkedRoleARN: "String"
+      Tags:
+        Tags
+      TargetGroupARNs:
+        TargetGroupARNs
+      TerminationPolicies:
+        TerminationPolicies
+      VPCZoneIdentifier:
+        VPCZoneIdentifier
+
+  LatifASGPolicy:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties:
+      AutoScalingGroupName: !Ref  # Required 
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 70
+
+  LatifLaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
     Properties:
       LaunchTemplateData:
-        ImageId: "String"
-        InstanceType: "String"
-        KeyName: "String"
+        ImageId: !FindInMap 
+          - RegionMap
+          - !Ref AWS::Region
+          - HVM64 
+        InstanceType: !Ref InstanceTypeParameter
+        KeyName: !Ref LatifKeyPairParameter
         SecurityGroupIds:
-          -
+          - !GetAtt LatifSecurutyGroup.GroupId
         UserData: !Base64 |
-          
           #! /bin/bash
+          
           yum update -y
           yum install -y httpd
           TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
@@ -39,43 +123,7 @@ Resources:
           </html>" > /var/www/html/index.html
           systemctl start httpd
           systemctl enable httpd
-          
-
-  LatifLaunchTemplate:
-    Type: AWS::EC2::LaunchTemplate
-    Properties:
-      LaunchTemplateData:
-        BlockDeviceMappings:
-          -
-        DisableApiStop: false
-        DisableApiTermination: false
-        EbsOptimized: false
-        ElasticGpuSpecifications:
-          -
-        ElasticInferenceAccelerators:
-          -
-        ImageId: "String"
-        InstanceInitiatedShutdownBehavior: "String"
-        InstanceType: "String"
-        KernelId: "String"
-        KeyName: "String"
-        LicenseSpecifications:
-          -
-        NetworkInterfaces:
-          -
-        RamDiskId: "String"
-        SecurityGroupIds:
-          -
-        SecurityGroups:
-          -
-        TagSpecifications:
-          -
-        UserData: "String"
-      LaunchTemplateName: "String"
-      TagSpecifications:
-        TagSpecifications
-      VersionDescription: "String"
-
+  
   LatifTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
@@ -85,7 +133,7 @@ Resources:
       Port: 80
       Protocol: HTTP
       UnhealthyThresholdCount: 5
-      VpcId: !ReF
+      VpcId: !Ref LatifVPCParameter
   
   LatifSecurutyGroup:
     Type: AWS::EC2::SecurityGroup
@@ -100,7 +148,7 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
-      VpcId: !ReF
+      VpcId: !Ref LatifVPCParameter
 
 Outputs:
   LatifLoadBalancerDNSName:
