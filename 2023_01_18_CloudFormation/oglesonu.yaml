@@ -41,25 +41,66 @@ Resources:
           systemctl enable httpd
           
 
-  latifTG:
+  LatifLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateData:
+        BlockDeviceMappings:
+          -
+        DisableApiStop: false
+        DisableApiTermination: false
+        EbsOptimized: false
+        ElasticGpuSpecifications:
+          -
+        ElasticInferenceAccelerators:
+          -
+        ImageId: "String"
+        InstanceInitiatedShutdownBehavior: "String"
+        InstanceType: "String"
+        KernelId: "String"
+        KeyName: "String"
+        LicenseSpecifications:
+          -
+        NetworkInterfaces:
+          -
+        RamDiskId: "String"
+        SecurityGroupIds:
+          -
+        SecurityGroups:
+          -
+        TagSpecifications:
+          -
+        UserData: "String"
+      LaunchTemplateName: "String"
+      TagSpecifications:
+        TagSpecifications
+      VersionDescription: "String"
+
+  LatifTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
-    Properties: 
+    Properties:
       HealthCheckIntervalSeconds: 10 
-      HealthCheckTimeoutSeconds: 5
+      HealthCheckTimeoutSeconds: 6
       HealthyThresholdCount: 5 
       Port: 80
-      Protocol: HTTP 
-      UnhealthyThresholdCount: 3
-      VpcId: "String"
+      Protocol: HTTP
+      UnhealthyThresholdCount: 5
+      VpcId: !ReF
   
   LatifSecurutyGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: "Kendim deniyorum SecurityGroup" # Required
-      GroupName: "String" 
+      GroupDescription: "Kendim deniyorum SecurityGroup" # Required 
       SecurityGroupIngress:
-        SecurityGroupIngress 
-      VpcId: "String"
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      VpcId: !ReF
 
 Outputs:
   LatifLoadBalancerDNSName:
