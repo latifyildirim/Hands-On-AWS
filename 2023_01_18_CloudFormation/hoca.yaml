@@ -118,7 +118,6 @@ Resources:
           systemctl start httpd
           systemctl enable httpd
 
-
   myTG:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
