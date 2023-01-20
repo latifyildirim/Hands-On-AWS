@@ -11,7 +11,7 @@ Parameters:
     Type: AWS::EC2::KeyPair::KeyName
   
   InstanceTypeParameter:
-    Type: 'list<AWS::EC2::Instance::Id>'
+    Type: String
     Default: t2.micro
     AllowedValues:
       - t2.micro
@@ -21,7 +21,7 @@ Parameters:
   
   LatifSubnetParameter:
     Description: En az 2 subnet secmelisin
-    Type: List<AWS::EC2::Subnet::Id> 
+    Type: 'List<AWS::EC2::Subnet::Id>' 
 
 Mappings: 
   RegionMap: 
@@ -46,9 +46,8 @@ Resources:
       MaxSize: 2 # Required
       MinSize: 1 # Required
       TargetGroupARNs:
-        TargetGroupARNs
-      VPCZoneIdentifier:
-        VPCZoneIdentifier
+        - !Ref LatifTargetGroup
+      VPCZoneIdentifier: !Ref LatifSubnetParameter
 
   LatifListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
@@ -66,19 +65,18 @@ Resources:
     Properties:
       SecurityGroups:
         - !GetAtt LatifSecurutyGroup.GroupId
-      Subnets:
-        !Ref LatifSubnetParameter
+      Subnets: !Ref LatifSubnetParameter
       Type: application
 
   LatifASGPolicy:
     Type: AWS::AutoScaling::ScalingPolicy
     Properties:
-      AutoScalingGroupName: !Ref  # Required 
+      AutoScalingGroupName: !Ref LatifAutoScalingGroup  # Required 
       PolicyType: TargetTrackingScaling
       TargetTrackingConfiguration:
         PredefinedMetricSpecification:
           PredefinedMetricType: ASGAverageCPUUtilization
-        TargetValue: 70
+        TargetValue: 70.0
 
   LatifLaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
