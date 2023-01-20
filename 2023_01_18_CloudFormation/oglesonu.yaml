@@ -1,14 +1,15 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: |
   
-Parameters: 
-  
+Parameters:   
   LatifVPCParameter:
     Description: Bir VPC Sec
     Type: AWS::EC2::VPC::Id
+  
   LatifKeyPairParameter:
     Description: Bir Key Sec
     Type: AWS::EC2::KeyPair::KeyName
+  
   InstanceTypeParameter:
     Type: 'list<AWS::EC2::Instance::Id>'
     Default: t2.micro
@@ -18,6 +19,9 @@ Parameters:
       - m1.large
     Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
   
+  LatifSubnetParameter:
+    Description: En az 2 subnet secmelisin
+    Type: List<AWS::EC2::Subnet::Id> 
 
 Mappings: 
   RegionMap: 
@@ -33,49 +37,38 @@ Mappings:
       HVM64 : "ami-06cd52961ce9f0d85"
 
 Resources:
-  LatifASG:
+  LatifAutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
-      AutoScalingGroupName: "String"
-      AvailabilityZones:
-        AvailabilityZones
-      CapacityRebalance: false
-      Context: "String"
-      Cooldown: "String"
-      DefaultInstanceWarmup: Number
-      DesiredCapacity: "String"
-      DesiredCapacityType: "String"
-      HealthCheckGracePeriod: Number
-      HealthCheckType: "String"
-      InstanceId: "String"
-      LaunchConfigurationName: "String"
       LaunchTemplate:
-        LaunchTemplateId: "String"
-        LaunchTemplateName: "String"
-        Version: "String"
-      LifecycleHookSpecificationList:
-        LifecycleHookSpecificationList
-      LoadBalancerNames:
-        LoadBalancerNames
-      MaxInstanceLifetime: Number
-      MaxSize: "String" # Required
-      MetricsCollection:
-        MetricsCollection
-      MinSize: "String" # Required
-      MixedInstancesPolicy:
-      NewInstancesProtectedFromScaleIn: false
-      NotificationConfigurations:
-        NotificationConfigurations
-      PlacementGroup: "String"
-      ServiceLinkedRoleARN: "String"
-      Tags:
-        Tags
+        LaunchTemplateId: !Ref LatifLaunchTemplate
+        Version: !GetAtt LatifLaunchTemplate.LatestVersionNumber
+      MaxSize: 2 # Required
+      MinSize: 1 # Required
       TargetGroupARNs:
         TargetGroupARNs
-      TerminationPolicies:
-        TerminationPolicies
       VPCZoneIdentifier:
         VPCZoneIdentifier
+
+  LatifListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions: # Required
+        - Type: forward
+          TargetGroupArn: !Ref LatifTargetGroup
+
+      LoadBalancerArn: !Ref LatifLoadBalancer
+      Port: 80
+      Protocol: HTTP
+
+  LatifLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      SecurityGroups:
+        - !GetAtt LatifSecurutyGroup.GroupId
+      Subnets:
+        !Ref LatifSubnetParameter
+      Type: application
 
   LatifASGPolicy:
     Type: AWS::AutoScaling::ScalingPolicy
