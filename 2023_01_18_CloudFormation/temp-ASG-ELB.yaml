@@ -61,7 +61,7 @@ Resources:
     myASG:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties: 
-      DesiredCapacity: "2" 
+      DesiredCapacity: 2 
       HealthCheckGracePeriod: 90
       HealthCheckType: ELB 
       LaunchTemplate:
