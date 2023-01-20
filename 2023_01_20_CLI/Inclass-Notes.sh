@@ -75,21 +75,21 @@ aws ec2 run-instances \
    --image-id ami-0b5eea76982371e91 \
    --count 1 \
    --instance-type t2.micro \
-   --key-name KEY_NAME_HERE # put your key name
+   --key-name firstkey # put your key name
 
 aws ec2 describe-instances \
-   --filters "Name = key-name, Values = KEY_NAME_HERE" # put your key name
+   --filters "Name = key-name, Values = firstkey" # put your key name
 
 aws ec2 describe-instances --query "Reservations[].Instances[].PublicIpAddress[]"
 
 aws ec2 describe-instances \
-   --filters "Name = key-name, Values = KEY_NAME_HERE" --query "Reservations[].Instances[].PublicIpAddress[]" # put your key name
+   --filters "Name = key-name, Values = firstkey" --query "Reservations[].Instances[].PublicIpAddress[]" # put your key name
 
 aws ec2 describe-instances \
    --filters "Name = instance-type, Values = t2.micro" --query "Reservations[].Instances[].InstanceId[]"
 
 aws ec2 describe-instances  \
-  --filters "Name = instance-type, Values = t2.micro" "Name = key-name, Values = KEY_NAME_HERE" \
+  --filters "Name = instance-type, Values = t2.micro" "Name = key-name, Values = firstkey" \
   --query "Reservations[].Instances[].{Instance:InstanceId,PublicIp:PublicIpAddress}" # put your key name
 
 aws ec2 stop-instances --instance-ids INSTANCE_ID_HERE # put your instance id
