@@ -24,7 +24,7 @@ At the end of the this hands-on training, students will be able to;
 - First, create Security Group for RDS service. Select EC2 dashboard. Select Security Groups from the left-hand menu.
 ```text
 Security Group Name: latif_db_sg
-Description: latif_db_sg
+Description: Enables 3306
 VPC: Default
 Inbound Rules:
     - Type: MYSQL/AURORA ---> Source: MyIP
