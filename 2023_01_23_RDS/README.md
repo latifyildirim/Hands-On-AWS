@@ -60,7 +60,7 @@ Free tier
 - Settings
 
 ```text
-DB instance identifier: RDS-mysql
+DB instance identifier: RDS-mysql-latif
 Master username: admin
 Master password: Pl123456789
 ```
