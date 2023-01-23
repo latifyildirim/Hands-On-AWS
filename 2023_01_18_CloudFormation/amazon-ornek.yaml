@@ -28,7 +28,7 @@ Resources:
       DefaultActions:
         - TargetGroupArn: !Ref myTargetGroup
           Type: forward
-      LoadBalancerArn: !Ref myLoadBalancer
+      LoadBalancerArn: !Ref myLo  adBalancer
       Port: 80
       Protocol: HTTP
   myTargetGroup:

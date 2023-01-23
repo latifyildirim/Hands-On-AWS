@@ -1,80 +1,97 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: |
-  Bu tam anlamaiyla neredeyse ikinci Template
 
-Parameters: 
+
+Description: |
+  This template creates an ASG behind an ALB.
+Parameters:
   VPCParameter:
-    Description: Select your VPC
+    Description: Select your VPC.
     Type: AWS::EC2::VPC::Id
+
   SubnetParameter:
-    Description: Select at least 2 subnets. "En az 2 subnet sec"
-    Type: List<AWS::EC2::Subnet::Id> 
+    Description: Select at least 2 subnets.
+    Type: List<AWS::EC2::Subnet::Id>
+
   InstanceTypeParameter:
-    Description: Ec2 tipini sec bakalim
     Type: String
     Default: t2.micro
     AllowedValues:
       - t2.micro
-      - t2.nano
-      - t2.small
-      - t1.micro
+      - m1.small
+      - m1.large
+    Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
+
   KeyPairParameter:
-    Description: KeyPair sec
-    Type: AWS::EC2::KeyPair::KeyName 
-Mappings: 
-  RegionImageMap: 
-    us-east-1: 
-      AMI : "ami-0b5eea76982371e91"
-    us-west-1: 
-      AMI : "ami-0bdb828fd58c52235"
-    eu-west-1: 
-      AMI : "ami-047bb4163c506cd98"
-    ap-southeast-1: 
-      AMI : "ami-08569b978cc4dfa10"
-    ap-northeast-1: 
-      AMI : "ami-06cd52961ce9f0d85"
+    Description: Select your Key Pair.
+    Type: AWS::EC2::KeyPair::KeyName
+  
+  
+Mappings:
+  RegionImageMap:
+    us-east-1:
+      AMI: ami-0b5eea76982371e91
+    us-east-2:
+      AMI: ami-0233c2d874b811deb
+    us-west-1:
+      AMI: ami-0ed05376b59b90e46
+    us-west-2:
+      AMI: ami-0dc8f589abe99f538
+    eu-west-1:
+      AMI: ami-058b1b7fe545997ae
+  
+
+  
 Resources:
-  myALB:
+  yakupALB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
-    Properties: 
+    Properties:
       SecurityGroups:
-        - !GetAtt mySG.GroupId 
+        - !GetAtt yakupSG.GroupId
       Subnets: !Ref SubnetParameter 
-      Type: aplication
-  myListner:
+      Type: application
+
+  yakupListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
-    Properties: 
+    Properties:
       DefaultActions: # Required
         - Type: forward
-          TargetGroupArn: !Ref myTG
-      LoadBalancerArn: !Ref myALB # Required
+          TargetGroupArn: !Ref yakupTG
+      LoadBalancerArn: !Ref yakupALB # Required
       Port: 80
       Protocol: HTTP
-  myASG:
-    myASG:
+
+
+
+  yakupASG:
     Type: AWS::AutoScaling::AutoScalingGroup
-    Properties: 
-      DesiredCapacity: 2 
-      HealthCheckGracePeriod: 90
-      HealthCheckType: ELB 
+    Properties:
+      DesiredCapacity: 2
+      HealthCheckGracePeriod: 100
+      HealthCheckType: ELB
       LaunchTemplate:
-        LaunchTemplateId: !Ref myLT 
+        LaunchTemplateId: !Ref yakupLT
         Version: 1
-      MaxSize: 3 # Required 
-      MinSize: 1 # Required 
+      MaxSize: 3 # Required
+      MinSize: 1 # Required
       TargetGroupARNs:
-        - !Ref myTG
+        - !Ref yakupTG
       VPCZoneIdentifier: !Ref SubnetParameter
-  myCPUPolicy:
+
+
+  AutoScalingPolicy:
     Type: AWS::AutoScaling::ScalingPolicy
-    Properties: 
-      AutoScalingGroupName: !Ref myASG
+    Properties:
+      AdjustmentType: ChangeInCapacity
+      AutoScalingGroupName: !Ref yakupASG
       PolicyType: TargetTrackingScaling
       TargetTrackingConfiguration:
         PredefinedMetricSpecification:
-            PredefinedMetricType: ASGAverageCPUUtilization
+          PredefinedMetricType: ASGAverageCPUUtilization
         TargetValue: 60.0
-  myLT:
+
+
+
+  yakupLT:
     Type: AWS::EC2::LaunchTemplate
     Properties:
       LaunchTemplateData:
@@ -85,7 +102,7 @@ Resources:
         InstanceType: !Ref InstanceTypeParameter
         KeyName: !Ref KeyPairParameter
         SecurityGroupIds:
-          - !GetAtt mySG.GroupId
+          - !GetAtt yakupSG.GroupId
         UserData: !Base64 |
           #! /bin/bash
           yum update -y
@@ -101,28 +118,29 @@ Resources:
               <title> Congratulations! You have created an instance from Launch Template</title>
           </head>
           <body>
-              <h1>This web server is launched from launch template by YOUR_NAME</h1>
+              <h1>This web server is launched from launch template by YAKUPHAN</h1>
               <p>This instance is created at <b>$DATE_TIME</b></p>
               <p>Private IP address of this instance is <b>$PRIVATE_IP</b></p>
               <p>Public IP address of this instance is <b>$PUBLIC_IP</b></p>
           </body>
           </html>" > /var/www/html/index.html
           systemctl start httpd
-          systemctl enable httpd
-  myTG:
+          systemctl enable httpd         
+  yakupTG:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
-    Properties: 
-      HealthCheckIntervalSeconds: 10 
+    Properties:
+      HealthCheckIntervalSeconds: 20
       HealthCheckTimeoutSeconds: 5
-      HealthyThresholdCount: 5 
+      HealthyThresholdCount: 5
       Port: 80
-      Protocol: HTTP 
-      UnhealthyThresholdCount: 3
+      Protocol: HTTP
+      UnhealthyThresholdCount: 2
       VpcId: !Ref VPCParameter
-  mySG:
+  
+  yakupSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Enables SSH and HTTP # Required  
+      GroupDescription: "For SSH and HTTP added." # Required
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
@@ -133,10 +151,11 @@ Resources:
           ToPort: 80
           CidrIp: 0.0.0.0/0
       VpcId: !Ref VPCParameter
+
 Outputs:
   DNSofALB:
-    Description: The DNSName of the backup load balancer
-    Value: !Join
+    Description: The DNSName of ALB.
+    Value: !Join 
       - ''
       - - 'http://'
-        - !GetAtt myALB.DNSName
+        - !GetAtt yakupALB.DNSName
