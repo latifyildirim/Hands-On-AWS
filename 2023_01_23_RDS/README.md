@@ -23,8 +23,8 @@ At the end of the this hands-on training, students will be able to;
 ## Part 1 - Creating RDS Instance on AWS Management Console
 - First, create Security Group for RDS service. Select EC2 dashboard. Select Security Groups from the left-hand menu.
 ```text
-Security Group Name: clarusway_db_sg
-Description: clarusway_db_sg
+Security Group Name: latif_db_sg
+Description: latif_db_sg
 VPC: Default
 Inbound Rules:
     - Type: MYSQL/AURORA ---> Source: MyIP
@@ -89,7 +89,7 @@ Click Additional Connectivity Configuration;
 
 Subnet group                  : default
 *Publicly accessible          : ***Yes
-Existing VPC security groups  : Select security group named clarusway_db_sg
+Existing VPC security groups  : Select security group named latif_db_sg
 Availability Zone             : No preference
 Database port                 : 3306
 ```
@@ -103,7 +103,7 @@ DB Authentication: Password authentication
 - Additional configuration
 
 ```text
-Initial DB name                   : clarusway
+Initial DB name                   : latif
 DB parameter group & option group : default
 Automatic backups                 : enable
 Backup retention period           : 7 days (Explain how)
@@ -162,11 +162,11 @@ On the page opened, we'll set up a new connection:
 
 ## Part 3 - Manipulating RDS Instance
 
-- Show `clarusway` database that is created together with RDS DB instance creation.
+- Show `latif` database that is created together with RDS DB instance creation.
 
 - Create a new database from "Schema" tab
 
-- To modify the database, first, we need to create a new table. So, click the `clarusway` schema (or your schema's name). Right-click the `Table` option, then select the `Create Table`, and enter `Personal_Info_1` as table name.
+- To modify the database, first, we need to create a new table. So, click the `latif` schema (or your schema's name). Right-click the `Table` option, then select the `Create Table`, and enter `Personal_Info_1` as table name.
 
 ```text
 1. First Row: Type `ID_number` into the first line. 
@@ -188,7 +188,7 @@ Then a window that shows the review of the table pops up on the screen. Click Ap
 - Add another table via SQL command:
 
 ```sql
-CREATE TABLE `clarusway`.`Personal_Info_2` (
+CREATE TABLE `latif`.`Personal_Info_2` (
   `ID_number` INT NOT NULL,
   `Name` VARCHAR(45) NULL,
   `Surname` VARCHAR(45) NULL,
@@ -203,28 +203,28 @@ CREATE TABLE `clarusway`.`Personal_Info_2` (
 - Add data to the "Personal_Info" table as shown below:
 
 ```sql
-INSERT INTO clarusway.Personal_Info_1
+INSERT INTO latif.Personal_Info_1
 (ID_number, Name, Surname, Gender, Salary)
 VALUES
-('1234','Osvaldo','Clarusway','Male','45000'), 
-('56789','Guile','Clarusway','Male','55000'), 
-('007','Charlie','Clarusway','Male','50000'), 
-('432','Marcus','Clarusway','Male','55000'), 
-('324','Vincenzo','Clarusway','Male','65000'),
-('4587','Aslan','Clarusway','Male','40000'), 
-('43546','Serdar','Clarusway','Male','70000');
+('1234','Osvaldo','latif','Male','45000'), 
+('56789','Guile','latif','Male','55000'), 
+('007','Charlie','latif','Male','50000'), 
+('432','Marcus','latif','Male','55000'), 
+('324','Vincenzo','latif','Male','65000'),
+('4587','Aslan','latif','Male','40000'), 
+('43546','Serdar','latif','Male','70000');
 ```
 
 - Write a query to show all data in the `Personal_Info_1` table
 
 ```sql
-SELECT * FROM clarusway.Personal_Info_1;
+SELECT * FROM latif.Personal_Info_1;
 ```
 
 - Write a query to show the personal whose salary are higher than 40K in the `Personal_Info_1` table
 
 ```sql
- SELECT * FROM clarusway.Personal_Info_1 WHERE salary > 40000;
+ SELECT * FROM latif.Personal_Info_1 WHERE salary > 40000;
 ```
 
 
