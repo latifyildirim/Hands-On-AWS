@@ -1,5 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09 
-Description: LoadBalancer li %70 ust sinirli 2xEC2 ayaga kaldiriyor max:4. 
+Description: LoadBalancer li %70 ust sinirli 2xEC2 ayaga kaldiriyor max:4. |
+              HTTP ve SSH acik.
 # Parameters:
 #   AmiId:
 #     Type: String
