@@ -43,7 +43,7 @@ Resources:
 
           yum update -y
           yum install httpd -y
-          FOLDER="https://raw.githubusercontent.com/latifyildirim/flask-project/main/Project-101-kittens-carousel-static-website-ec2/static-web"
+          FOLDER="https://raw.githubusercontent.com/latifyildirim/projects/main/kittens-carousel-static-website-ec2/static-web/"
           cd /var/www/html
           wget $FOLDER/index.html
           wget $FOLDER/cat0.jpg
