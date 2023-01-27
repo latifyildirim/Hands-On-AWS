@@ -15,12 +15,12 @@ sudo apt update && sudo apt upgrade -y
 # Install the mariadb-client.
 sudo apt-get install mariadb-client -y
 
-# Connect the clarusdb on MariaDB Server on the other EC2 instance (pw:clarus1234).
-mysql -h ec2-3-94-163-77.compute-1.amazonaws.com -u clarususer -p
+# Connect the latifdb on MariaDB Server on the other EC2 instance (pw:latif1234).
+mysql -h ec2-3-94-163-77.compute-1.amazonaws.com -u latifuser -p
 
-# Show that clarususer can do same db operations on MariaDB Server instance.
+# Show that latifuser can do same db operations on MariaDB Server instance.
 SHOW DATABASES;
-USE clarusdb;
+USE latifDB;
 SHOW TABLES;
 SELECT * FROM employees;
 SELECT * FROM offices;
