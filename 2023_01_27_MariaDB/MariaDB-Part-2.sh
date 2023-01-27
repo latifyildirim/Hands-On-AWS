@@ -36,17 +36,17 @@ SHOW DATABASES;
 USE mysql;
 SELECT Host, User, Password FROM user;
 
-# Create new database named 'clarusdb'.
-CREATE DATABASE clarusdb;
+# Create new database named 'latifdb'.
+CREATE DATABASE latifdb;
 
 # Show newly created database.
 SHOW DATABASES;
 
-# Create a user named 'clarususer'.
-CREATE USER clarususer IDENTIFIED BY 'clarus1234';
+# Create a user named 'latifuser'.
+CREATE USER latifuser IDENTIFIED BY 'latif1234';
 
-# Grant permissions to the user clarususer for database clarusdb.
-GRANT ALL ON clarusdb.* TO clarususer IDENTIFIED BY 'clarus1234' WITH GRANT OPTION;
+# Grant permissions to the user latifuser for database latifdb.
+GRANT ALL ON latifdb.* TO latifuser IDENTIFIED BY 'latif1234' WITH GRANT OPTION;
 
 # Update privileges.
 FLUSH PRIVILEGES;
