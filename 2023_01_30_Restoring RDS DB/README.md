@@ -70,7 +70,7 @@ Free tier
 ```text
 DB instance identifier: RDS-mysql
 Master username: admin
-Master password: Pl123456789
+Master password: Latif58675
 ```
 
 - DB instance size
@@ -314,7 +314,7 @@ EXIT;
 
 - Connect to RDS DB instance from MariaDB Client. Note: We need to delete some data to simulate the data lost.
 
-- Login back to the RDS MySQL DB instance (`RDS-mysql`) as `admin` using the password defined with SSL pass: `Pl123456789`.
+- Login back to the RDS MySQL DB instance (`RDS-mysql`) as `admin` using the password defined with SSL pass: `Latif58675`.
 
 ```bash
 mysql -h RDS_ENDPOINT -u admin -p
@@ -391,7 +391,7 @@ USE latif;
     Keep it as is
   ```
 
-- This time we are going to connect as `admin` using the password defined `Pl123456789` to the newly RDS Instance named `restored-from-man-snapshot` that is created from snapshot.
+- This time we are going to connect as `admin` using the password defined `Latif58675` to the newly RDS Instance named `restored-from-man-snapshot` that is created from snapshot.
 
 ```bash
 mysql -h [***restored-from-man-snapshot RDS endpoint] -u admin -p
@@ -487,7 +487,7 @@ there are only 4 records
 
 - Go to the MariaDB Client instance.
 
-- Log into the RDS instance (`restored-from-point-in-time-RDS`) as `admin` using the password defined `Pl123456789`
+- Log into the RDS instance (`restored-from-point-in-time-RDS`) as `admin` using the password defined `Latif58675`
 
 ```bash
 mysql -h [DNS Name of point in time recovery RDS Instance] -u admin -p latif
