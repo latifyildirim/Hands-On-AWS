@@ -116,7 +116,7 @@ DB Authentication: Password authentication
 - Additional configuration
 
 ```text
-Initial DB name                   : clarusway
+Initial DB name                   : latif
 DB parameter group & option group : default
 Automatic backups                 : enable
 Backup retention period           : 7 days (Explain how)
@@ -177,10 +177,10 @@ SHOW DATABASES;
 - Choose a database 
 
 ```sql
-USE clarusway;
+USE latif;
 ```
 
-- Show tables within the `clarusway` db.
+- Show tables within the `latif` db.
 
 ```sql
 SHOW TABLES;
@@ -195,7 +195,7 @@ SELECT Host, User, authentication_string FROM user;
 ### STEP 3 - Creating Tables in RDS DB Instance and Populating with Data
 
 
-- Create a table named `offices` in clarusway database
+- Create a table named `offices` in latif database
 
 ```sql
 CREATE TABLE `offices` (
@@ -207,7 +207,7 @@ CREATE TABLE `offices` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-- Insert sample data into the table named `offices` in clarusway database
+- Insert sample data into the table named `offices` in latif database
 
 ```sql
 INSERT INTO `offices` VALUES (1,'03 Reinke Trail','Cincinnati','OH');
@@ -222,7 +222,7 @@ INSERT INTO `offices` VALUES (9,'16862 Westend Hill','Knoxville','TN');
 INSERT INTO `offices` VALUES (10,'4 Bluestem Parkway','Savannah','GA');
 ```
 
-- Create a table named `employees`in clarusway database
+- Create a table named `employees`in latif database
 
 ```sql
 CREATE TABLE `employees` (
@@ -239,7 +239,7 @@ CREATE TABLE `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-- Insert sample data into the table named `employees`in clarusway database
+- Insert sample data into the table named `employees`in latif database
 
 ```sql
 INSERT INTO `employees` VALUES (37270,'Yovonnda','Magrannell','Executive Secretary',63996,NULL,10);
@@ -282,7 +282,7 @@ SELECT * FROM offices;
 SELECT * FROM employees;
 ```
 
-- Close the `clarusway` database terminal.
+- Close the `latif` database terminal.
 
 ```sql
 EXIT;
@@ -322,10 +322,11 @@ mysql -h RDS_ENDPOINT -u admin -p
 - Choose a database 
 
 ```sql
-USE clarusway;
+USE latif;
 ```
 
-  - Delete `employees` who earns salary above `$70000` from the `clarusway` db on `RDS-mysql`.
+  - Delete `employees` who earns salary above `$70000` from the `latif
+` db on `RDS-mysql`.
 
     - Show all data in `employee` table.
 
@@ -396,13 +397,13 @@ USE clarusway;
 mysql -h [***restored-from-man-snapshot RDS endpoint] -u admin -p
 ```
 
-- Choose a database (`clarusway` db) to work with.
+- Choose a database (`latif` db) to work with.
 
 ```sql
-USE clarusway;
+USE latif;
 ```
 
-- Show tables within the `clarusway` db.
+- Show tables within the `latif` db.
 
 ```sql
 SHOW TABLES;
@@ -428,10 +429,10 @@ mysql -h [RDS-MysqlENDPOINT] -u admin -p
 - Choose a database 
 
 ```sql
-USE clarusway;
+USE latif;
 ```
 
-- This time, delete `employees` who earn salary above `$60000` from the `clarusway` db on `RDS-Mysql`.
+- This time, delete `employees` who earn salary above `$60000` from the `latif` db on `RDS-Mysql`.
 
 ```sql
 DELETE FROM employees WHERE salary > 60000;
@@ -489,7 +490,7 @@ there are only 4 records
 - Log into the RDS instance (`restored-from-point-in-time-RDS`) as `admin` using the password defined `Pl123456789`
 
 ```bash
-mysql -h [DNS Name of point in time recovery RDS Instance] -u admin -p clarusway
+mysql -h [DNS Name of point in time recovery RDS Instance] -u admin -p latif
 ```
 
 - Show that deleted records of employees are back in `restored-from-point-in-time-RDS`.
@@ -500,22 +501,22 @@ SELECT * FROM employees ORDER BY salary ASC;
 
 ## Part 5 - Dumping and Migrating Database
 
-- Show that some information are absent in the `clarusway` database on RDS DB instance (`RDS-Mysql`). We need to recover absent data from snapshot via dumping.
+- Show that some information are absent in the `latif` database on RDS DB instance (`RDS-Mysql`). We need to recover absent data from snapshot via dumping.
 
 - Go to MariaDB Client instance by connecting with SSH.
 
-- Back up the `clarusway` db from RDS DB instance (`restored-from-point-in-time-RDS`) to the file named `backup.sql` on EC2 instance.
+- Back up the `latif` db from RDS DB instance (`restored-from-point-in-time-RDS`) to the file named `backup.sql` on EC2 instance.
 
 ```bash
-mysqldump -h [restored-from-point-in-time-RDS endpoint] -u admin -p clarusway > backup.sql
+mysqldump -h [restored-from-point-in-time-RDS endpoint] -u admin -p latif > backup.sql
 ```
 
 - Show `backup.sql` file with `ls` command.
 
-- Restore the backup of `clarusway` db on to the MySQL DB Server (`RDS-mysql` instance) using  `backup.sql` file
+- Restore the backup of `latif` db on to the MySQL DB Server (`RDS-mysql` instance) using  `backup.sql` file
 
 ```bash
-mysql -h [RDS-mysql endpoint] -u admin -p clarusway < backup.sql
+mysql -h [RDS-mysql endpoint] -u admin -p latif < backup.sql
 ```
 
 - Connect to the `RDS-mysql` instance.
@@ -524,10 +525,10 @@ mysql -h [RDS-mysql endpoint] -u admin -p clarusway < backup.sql
 mysql -h [RDS-mysql endpoint] -u admin -p;
 ```
 
-- Show that all records are replicated in the `clarusway` database.
+- Show that all records are replicated in the `latif` database.
 
 ```sql
 SHOW DATABASES;
-USE clarusway;
+USE latif;
 SELECT * FROM employees;
 ```
