@@ -165,7 +165,7 @@ sudo apt-get install mariadb-client -y
 - Connect the RDS MySQL DB instance with admin user, and paste the password when prompted.
 
 ```bash
-mysql -h  Your RDS Endpoint -u admin -p
+mysql -h  database-1.c33ndfedld89.us-east-1.rds.amazonaws.com -u admin -p #Your RDS Endpoint
 ```
 
 - Show default databases in the MySQL server.
