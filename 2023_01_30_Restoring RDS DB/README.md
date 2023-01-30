@@ -509,7 +509,8 @@ SELECT * FROM employees ORDER BY salary ASC;
 - Back up the `latif` db from RDS DB instance (`restored-from-point-in-time-RDS`) to the file named `backup.sql` on EC2 instance.
 
 ```bash
-mysqldump -h [restored-from-point-in-time-RDS endpoint] -u admin -p latif > backup.sql
+mysqldump -h restored-from-point-in-time-rds.c33ndfedld89.us-east-1.rds.amazonaws.com -u admin -p latif > backup.sql
+# [restored-from-point-in-time-RDS endpoint]
 ```
 
 - Show `backup.sql` file with `ls` command.
