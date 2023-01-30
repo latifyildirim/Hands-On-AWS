@@ -376,7 +376,7 @@ Review and click save
     - upload tag_file.txt from local
 
 2. Additional upload options
-    - Storage class Standart-IA
+    - Storage class Standart-IA 
     - Tags
         Key     : Name
         Value   : cat
