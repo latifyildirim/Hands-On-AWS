@@ -290,11 +290,11 @@ EXIT;
 
 - For `point in time recovery` PART (PART-4), please note down the current time. (Exp: August 12, 2020, 22:45:34, UTC +3) and let the students know:
 
-     -enter the time:11:19:35
+     -enter the time:14:35:00
 
 ## Part 2 - Taking a Snapshot from RDS DB Instance
 
-- Take a manual snapshot of RDS instance and name it as `snapshat-ayliyozzz-bakealiommmmmmmm`.
+- Take a manual snapshot of RDS instance and name it as `snapshot-kaydi`.
 
   - Go to Amazon RDS from AWS Console.
 
@@ -305,7 +305,7 @@ EXIT;
   ```text
 
   DB Instance: RDS-mysql
-  Snapshot name : snapshat-ayliyozzz-bakealiommmmmmmm
+  Snapshot name : snapshot-kaydi
   ```
   - Create
   
@@ -350,7 +350,7 @@ USE latif;
 
 - Restore database from manual snapshot as new DB instance and name it as `restored-from-man-snapshot`.
 
-  - Go to snapshot on left hand menu and select snapshot named `snapshat-ayliyozzz-bakealiommmmmmmm`.
+  - Go to snapshot on left hand menu and select snapshot named `snapshot-kaydi`.
 
   - Click Action ----> Restore snapshot.
 
@@ -394,7 +394,7 @@ USE latif;
 - This time we are going to connect as `admin` using the password defined `Latif58675` to the newly RDS Instance named `restored-from-man-snapshot` that is created from snapshot.
 
 ```bash
-mysql -h [***restored-from-man-snapshot RDS endpoint] -u admin -p
+mysql -h restored-from-man-snapshot.c33ndfedld89.us-east-1.rds.amazonaws.com -u admin -p # [***restored-from-man-snapshot RDS endpoint]
 ```
 
 - Choose a database (`latif` db) to work with.
