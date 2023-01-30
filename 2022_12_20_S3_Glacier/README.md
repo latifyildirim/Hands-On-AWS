@@ -7,6 +7,7 @@
 aws glacier create-vault --account-id - --vault-name egitimvault
 
 
+
 1: 3 mb largefile isimli bir dosya yarat
 
 dd if=/dev/urandom of=largefile bs=3145728 count=1
