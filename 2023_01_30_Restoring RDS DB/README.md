@@ -490,7 +490,8 @@ there are only 4 records
 - Log into the RDS instance (`restored-from-point-in-time-RDS`) as `admin` using the password defined `Latif58675`
 
 ```bash
-mysql -h [DNS Name of point in time recovery RDS Instance] -u admin -p latif
+mysql -h restored-from-point-in-time-rds.c33ndfedld89.us-east-1.rds.amazonaws.com -u admin -p latif 
+# [DNS Name of point in time recovery RDS Instance]
 ```
 
 - Show that deleted records of employees are back in `restored-from-point-in-time-RDS`.
