@@ -424,7 +424,7 @@ EXIT;
 - Connect to the 'RDS-Mysql` database again.
 
 ```bash
-mysql -h [RDS-MysqlENDPOINT] -u admin -p
+mysql -h database-1.c33ndfedld89.us-east-1.rds.amazonaws.com -u admin -p # [RDS-MysqlENDPOINT]
 ```
 - Choose a database 
 
