@@ -294,7 +294,7 @@ EXIT;
 
 ## Part 2 - Taking a Snapshot from RDS DB Instance
 
-- Take a manual snapshot of RDS instance and name it as `manual-snapshot-RDS-mysql`.
+- Take a manual snapshot of RDS instance and name it as `snapshat-ayliyozzz-bakealiommmmmmmm`.
 
   - Go to Amazon RDS from AWS Console.
 
@@ -305,7 +305,7 @@ EXIT;
   ```text
 
   DB Instance: RDS-mysql
-  Snapshot name : Manual-Snapshot-RDS-Mysql
+  Snapshot name : snapshat-ayliyozzz-bakealiommmmmmmm
   ```
   - Create
   
@@ -350,7 +350,7 @@ USE latif;
 
 - Restore database from manual snapshot as new DB instance and name it as `restored-from-man-snapshot`.
 
-  - Go to snapshot on left hand menu and select snapshot named `manual-snapshot-RDS-mysql`.
+  - Go to snapshot on left hand menu and select snapshot named `snapshat-ayliyozzz-bakealiommmmmmmm`.
 
   - Click Action ----> Restore snapshot.
 
