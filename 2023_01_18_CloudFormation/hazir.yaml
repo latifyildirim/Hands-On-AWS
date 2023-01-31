@@ -48,7 +48,7 @@ Resources:
         InstanceType: t2.micro 
         KeyName: firstkey 
         SecurityGroupIds: 
-          - sg-08628ea867d4b50be
+          - sg-0f39b954ee1a319a7
         UserData: !Base64 |
           #! /bin/bash
 
@@ -67,7 +67,7 @@ Resources:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties: 
       SecurityGroups: 
-        - sg-08628ea867d4b50be #!Ref SG
+        - sg-0f39b954ee1a319a7 #!Ref SG
       Subnets: 
         - subnet-085b5d752b79bd6d2
         - subnet-03f5dda082bd06975
@@ -87,7 +87,7 @@ Resources:
   ASG:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties: 
-      DesiredCapacity: 2 
+      DesiredCapacity: 2
       HealthCheckGracePeriod: 90
       HealthCheckType: ELB  
       LaunchTemplate: 
