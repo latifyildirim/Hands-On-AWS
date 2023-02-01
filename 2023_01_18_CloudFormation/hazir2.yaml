@@ -1,0 +1,130 @@
+AWSTemplateFormatVersion: 2010-09-09 
+Description: LoadBalancer li %70 ust sinirli 2xEC2 ayaga kaldiriyor max:4. |
+              HTTP ve SSH acik.
+# Parameters:
+#   AmiId:
+#     Type: String
+#   VPC:
+#     Type: AWS::EC2::VPC::Id
+#     Description: A VPC that allows the load balancer access to the Internet
+#   SG:
+#     Type: 'List<AWS::EC2::SecurityGroup::Id>' 
+#     Description: A security group in the selected VPC that allows HTTP access on the inbound port
+#   Subnets:
+#     Type: 'List<AWS::EC2::Subnet::Id>'
+#     Description: At least two public subnets in different Availability Zones in the selected VPC
+# Mappings: 
+#   RegionImageMap: 
+#     us-east-1: 
+#       AMI : "ami-0b5eea76982371e91"
+#     us-west-1: 
+#       AMI : "ami-0bdb828fd58c52235"
+#     eu-west-1: 
+#       AMI : "ami-047bb4163c506cd98"
+#     ap-southeast-1: 
+#       AMI : "ami-08569b978cc4dfa10"
+#     ap-northeast-1: 
+#       AMI : "ami-06cd52961ce9f0d85"
+Resources:
+  TG:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties: 
+      HealthCheckIntervalSeconds: 30
+      HealthCheckTimeoutSeconds: 6
+      HealthyThresholdCount: 5 
+      Name: TG
+      Port: 80
+      Protocol: HTTP 
+      UnhealthyThresholdCount: 3
+      VpcId: vpc-06a500e981075f384 #!Ref VPC
+  LT:
+    Type: AWS::EC2::LaunchTemplate
+    Properties: 
+      LaunchTemplateData: 
+        ImageId: ami-0b5eea76982371e91 #!FindInMap 
+        #   - RegionImageMap
+        #   - !Ref AWS::Region
+        #   - AMI
+        InstanceType: t2.micro 
+        KeyName: firstkey 
+        SecurityGroupIds: 
+          - sg-0f39b954ee1a319a7
+        UserData: !Base64 |
+          #! /bin/bash
+
+          yum update -y
+          yum install httpd -y
+          TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
+          && PRIVATE_IP=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/local-ipv4`
+          TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
+          && PUBLIC_IP=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-ipv4` 
+          DATE_TIME=`date`
+          chmod -R 777 /var/www/html
+          FOLDER="https://raw.githubusercontent.com/latifyildirim/projects/main/kittens-carousel-static-website-ec2/static-web/"
+          cd /var/www/html
+          wget $FOLDER/index.html
+          wget $FOLDER/cat0.jpg
+          wget $FOLDER/cat1.jpg
+          wget $FOLDER/cat2.jpg
+          wget $FOLDER/cat3.png
+          systemctl start httpd
+          systemctl enable httpd
+  LB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties: 
+      SecurityGroups: 
+        - sg-0f39b954ee1a319a7 #!Ref SG
+      Subnets: 
+        - subnet-085b5d752b79bd6d2
+        - subnet-03f5dda082bd06975
+        - subnet-09f9cfe22405e22ab
+        - subnet-0c00bc9e3d2e0d90c
+        - subnet-01cab7965867b4272
+        - subnet-0c62bd572a25c4f1e
+  LBListner:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties: 
+      DefaultActions: # Required
+        - TargetGroupArn: !Ref TG
+          Type: forward
+      LoadBalancerArn: !Ref LB
+      Port: 80
+      Protocol: HTTP
+  ASG:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties: 
+      DesiredCapacity: 2
+      HealthCheckGracePeriod: 90
+      HealthCheckType: ELB  
+      LaunchTemplate: 
+        LaunchTemplateId: !Ref LT
+        Version: !GetAtt LT.LatestVersionNumber 
+      MaxSize: 4 # Required 
+      MinSize: 1 # Required 
+      TargetGroupARNs:
+        - !Ref TG 
+      VPCZoneIdentifier:   #!Ref Subnets
+        - subnet-085b5d752b79bd6d2
+        - subnet-03f5dda082bd06975
+        - subnet-09f9cfe22405e22ab
+        - subnet-0c00bc9e3d2e0d90c
+        - subnet-01cab7965867b4272
+        - subnet-0c62bd572a25c4f1e
+  CPUPolicy:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties: 
+      AutoScalingGroupName: !Ref ASG # Required 
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 70
+Outputs:
+  BackupLoadBalancerDNSName:
+    Description: The DNSName of the backup load balancer
+    Value: !GetAtt LB.DNSName  
+  StackVPC:
+    Description: The ID of the VPC
+    Value: vpc-06a500e981075f384 #!Ref VPC
+    Export:
+      Name: !Sub "${AWS::StackName}-VPC"
