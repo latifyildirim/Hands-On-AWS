@@ -145,7 +145,7 @@ STEP 1: Create NAT Instance
 - Go to EC2 Menu Using AWS Console
 
 ```text
-AMI             : ami-0aa210fd2121a98b7 (Nat Instance)
+AMI             : ami-04106ae1c90766385 (Nat Instance)
 Instance Type   : t2.micro
 Network         : latif-vpc-a
 Subnet          : latif-az1a-public-subnet
