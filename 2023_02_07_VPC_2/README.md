@@ -1,6 +1,6 @@
 ## Part 2 - Creating Bastion Host and connect to the private subnet from internet
 
-- discuss about how to connect to the "clarus-az1b-private-subnet" instance
+- discuss about how to connect to the "latif-az1b-private-subnet" instance
 
 - Explain logic of why we need Bastion Host?
 
@@ -11,8 +11,8 @@
 ```text
 AMI             : Amazon Linux 2
 Instance Type   : t2.micro
-Network         : clarus-vpc-a
-Subnet          : clarus-az1b-private-subnet
+Network         : latif-vpc-a
+Subnet          : latif-az1b-private-subnet
 Security Group  : 
     Sec.Group Name : Private Sec.group
     Rules          : TCP --- > 22 ---> Anywhere
@@ -28,8 +28,8 @@ Tag             :
 ```text
 AMI             : Amazon Linux 2
 Instance Type   : t2.micro
-Network         : clarus-vpc-a
-Subnet          : clarus-az1b-public-subnet
+Network         : latif-vpc-a
+Subnet          : latif-az1b-public-subnet
 Security Group  : 
     Sec.Group Name : Public Sec.group(Bastion Host)
     Rules          : TCP --- > 22 ---> Anywhere
@@ -107,9 +107,9 @@ STEP 2: Create Nat Gateway
 
 - Click Create Nat Gateway button 
 ```bash
-Name                      : clarus-nat-gateway
+Name                      : latif-nat-gateway
 
-Subnet                    : clarus-az1b-public-subnet
+Subnet                    : latif-az1b-public-subnet
 
 Elastic IP allocation ID  : First Elastic IP
 ```
@@ -119,10 +119,10 @@ STEP 3 : Modify Route Table of Private Instance's Subnet
 
 - Go to VPC console on left hand menu and select Route Table tab
 
-- Select "clarus-private-rt" ---> Routes ----> Edit Rule ---> Add Route
+- Select "latif-private-rt" ---> Routes ----> Edit Rule ---> Add Route
 ```
 Destination     : 0.0.0.0/0
-Target ----> Nat Gateway ----> clarus-nat-gateway
+Target ----> Nat Gateway ----> latif-nat-gateway
 ```
 - click save routes
 
@@ -132,7 +132,7 @@ Target ----> Nat Gateway ----> clarus-nat-gateway
 
 - Go to VPC console on left hand menu and select Nat Gateway tab
 
-- Select clarus-nat-gateway --- > Actions ---> delete Nat Gateway
+- Select latif-nat-gateway --- > Actions ---> delete Nat Gateway
 
 - Go to VPC console on left hand menu and select Elastic IP tab
 
@@ -147,8 +147,8 @@ STEP 1: Create NAT Instance
 ```text
 AMI             : ami-0aa210fd2121a98b7 (Nat Instance)
 Instance Type   : t2.micro
-Network         : clarus-vpc-a
-Subnet          : clarus-az1a-public-subnet
+Network         : latif-vpc-a
+Subnet          : latif-az1a-public-subnet
 Security Group  : 
     Sec.Group Name : Public Sec.group
     Rules          : TCP ---> 22 ---> Anywhere
@@ -156,7 +156,7 @@ Security Group  :
 
 Tag             :
     Key         : Name
-    Value       : Clarus NAT Instance
+    Value       : latif NAT Instance
 ```
 
 - Select created Nat Instance on EC2 list
@@ -167,7 +167,7 @@ Tag             :
 
 STEP 2: Configuring the Route Table
 
-- Go to Route Table and select "clarus-private-rt"
+- Go to Route Table and select "latif-private-rt"
 
 - Select Routes sub-menu ----> Edit Rules ----> Delete blackhole for Nat Gateway
 
