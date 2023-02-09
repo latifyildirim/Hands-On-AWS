@@ -19,8 +19,8 @@
 
 - Launch 3 Instances. 
   
-  - First instance will be private  in "clarus-az1a-private-subnet" of "clarus-vpc-a",
-  - Second instance will be public for bastion host in  "clarus-az1b-public-subnet" of "clarus-vpc-a"
+  - First instance will be private  in "latif-az1a-private-subnet" of "latif-vpc-a",
+  - Second instance will be public for bastion host in  "latif-az1b-public-subnet" of "latif-vpc-a"
   - Third one will be public as "Windows" instance in "default VPC "
 
 
@@ -33,9 +33,9 @@
 - click Create NAT Gateway.
 
 ```bash
-Name                      : clarus-nat-gateway
+Name                      : latif-nat-gateway
 
-Subnet                    : clarus-az1a-public-subnet
+Subnet                    : latif-az1a-public-subnet
 
 Elastic IP allocation ID  : Allocate Elastic IP
 ```
@@ -45,10 +45,10 @@ Elastic IP allocation ID  : Allocate Elastic IP
 
 - Go to VPC console on left hand menu and select Route Table tab
 
-- Select "clarus-private-rt" ---> Routes ----> Edit Rule ---> Add Route
+- Select "latif-private-rt" ---> Routes ----> Edit Rule ---> Add Route
 ```
 Destination     : 0.0.0.0/0
-Target ----> Nat Gateway ----> clarus-nat-gateway
+Target ----> Nat Gateway ----> latif-nat-gateway
 ```
 - click save changes
 
@@ -71,13 +71,13 @@ Tag             :
 PS: For MAC, "Microsoft Remote Desktop" program should be installed on the computer.
 ```
 
-### D. Configure Private instance in 'clarus-az1a-private-subnet' of 'clarus-vpc-a'.
+### D. Configure Private instance in 'latif-az1a-private-subnet' of 'latif-vpc-a'.
 
 ```text
 AMI             : Amazon Linux 2
 Instance Type   : t2.micro
-Network         : clarus-vpc-a 
-Subnet          : clarus-az1a-private-subnet
+Network         : latif-vpc-a 
+Subnet          : latif-az1a-private-subnet
 user data       : 
 
 #!/bin/bash
@@ -103,13 +103,13 @@ Tag             :
     Value       : Private-Instance
 ```
 
-### E. Configure Public Instance (Bastion Host) in "clarus-az1b-public-subnet" of "clarus-vpc-a"
+### E. Configure Public Instance (Bastion Host) in "latif-az1b-public-subnet" of "latif-vpc-a"
 
 ```text
 AMI             : Amazon Linux 2
 Instance Type   : t2.micro
-Network         : clarus-vpc-a
-Subnet          : clarus-az1b-public-subnet
+Network         : latif-vpc-a
+Subnet          : latif-az1b-public-subnet
 Security Group    : 
     Sec.Group Name : PublicSG
     Rules          : SSH --- > 22 ---> Anywhere
@@ -146,7 +146,7 @@ Peering connection name tag : First Peering
 VPC(Requester)              : Default VPC
 Account                     : My Account
 Region                      : This Region (us-east-1)
-VPC (Accepter)              : clarus-vpc-a
+VPC (Accepter)              : latif-vpc-a
 ```
 - Hit "Create peering connection" button
 
@@ -154,11 +154,11 @@ VPC (Accepter)              : clarus-vpc-a
 
 - Go to route Tables and select default VPC's route table ----> Routes ----> Edit routes
 ```
-Destination: paste "clarus-vpc-a" CIDR blok
+Destination: paste "latif-vpc-a" CIDR blok
 Target ---> peering connection ---> select 'First Peering' ---> Save routes
 ```
 
-- select clarus-private-rt's route table ----> Routes ----> Edit routes
+- select latif-private-rt's route table ----> Routes ----> Edit routes
 ```
 Destination: paste "default VPC" CIDR blok
 Target ---> peering connection ---> select 'First Peering' ---> Save routes
@@ -178,7 +178,7 @@ WARNING!!! ---> Please do not terminate "NAT Gateway" and "Private-Instance" for
 ### A. Create S3 Bucket 
 
 - Go to the S3 service on AWS console
-- Create a bucket of `clarusway-vpc-endpoint` with following properties, 
+- Create a bucket of `latifway-vpc-endpoint` with following properties, 
 
 ```text
 Object Ownership            : ACLs disabled
@@ -202,13 +202,13 @@ Trusted entity type: AWS Service
 use case : EC2  
 Use cases for other AWS services: s3 ---> Next : Permission
 Permissions Policies: AmazonS3FullAccess ---> Next
-Role Name : clarusS3FullAccessforEndpoint
-Role description: clarus S3 Full Access for Endpoint
+Role Name : latifS3FullAccessforEndpoint
+Role description: latif S3 Full Access for Endpoint
 click create button
 ```
 Go to EC2 service from AWS console
 
-Select "Private-Instance" ---> Actions ---> Security ---> Modify IAM Role  select newly created IAM role named 'clarusS3FullAccessforEndpoint' ---> Apply
+Select "Private-Instance" ---> Actions ---> Security ---> Modify IAM Role  select newly created IAM role named 'latifS3FullAccessforEndpoint' ---> Apply
 
 ## STEP 2: Access S3 Bucket from Private-Instance
 
@@ -228,7 +228,7 @@ eval "$(ssh-agent)"
 ```bash
 ssh-add ./[your pem file name]
 ```
-- connect to the ec2 instance (Public-Instance (Bastion Host)) in clarus-az1b-public-subnet
+- connect to the ec2 instance (Public-Instance (Bastion Host)) in latif-az1b-public-subnet
 ```bash
 ssh -A ec2-user@ec2-3-88-199-43.compute-1.amazonaws.com
 ```
@@ -240,16 +240,16 @@ ssh ec2-user@[Your private EC2 private IP]
 ```
 ### C. Use CLI to verify connectivity
 
-- list the bucket in S3 and content of S3 bucket named "aws s3 ls "clarusway-vpc-endpoint" via following command
+- list the bucket in S3 and content of S3 bucket named "aws s3 ls "latifway-vpc-endpoint" via following command
 
 ```
 aws s3 ls
-aws s3 ls clarusway-vpc-endpoint
+aws s3 ls latifway-vpc-endpoint
 ```
 
 - go to NAT Gateways on VPC service
 
-- select clarus-nat-gateways ---> Actions ---> Delete NAT Gateway
+- select latif-nat-gateways ---> Actions ---> Delete NAT Gateway
 
 - Check the Elastic IP whether it is released or not . If not released it. 
 
@@ -268,28 +268,28 @@ aws s3 ls
 
 - click Create Endpoint
 ```text
-Name             : clarus-s3-endpoint
+Name             : latif-s3-endpoint
 Service Category : AWS services
 Service Name     : com.amazonaws.us-east-1.s3
 Service Type     : gateway
-VPC              : clarus-vpc-a
+VPC              : latif-vpc-a
 ```
 - Create Endpoint
 
-- Go to newly created S3 Endpoint>>> "Route tables" >>> "Manage route tables">>> select "clarus-private-rt"
-- Go to private route table named ‘clarus-private-rt’ and show the endpoint rule that is automatically created by AWS
+- Go to newly created S3 Endpoint>>> "Route tables" >>> "Manage route tables">>> select "latif-private-rt"
+- Go to private route table named ‘latif-private-rt’ and show the endpoint rule that is automatically created by AWS
 
 ### B. Connect to S3 via Endpoint
 
-- Go to terminal, list the buckets in S3 and content of S3 bucket named "clarusway-vpc-endpoint" via following command
+- Go to terminal, list the buckets in S3 and content of S3 bucket named "latifway-vpc-endpoint" via following command
 ```bash
 aws s3 ls
-aws s3 ls clarusway-vpc-endpoint
+aws s3 ls latifway-vpc-endpoint
 ```
 
 - copy the 'Honda.png' file from S3 bucket into the private EC2
 ```bash
-aws s3 cp s3://clarusway-vpc-endpoint/Honda.png .
+aws s3 cp s3://latifway-vpc-endpoint/Honda.png .
 ```
 
 **Don't forget to terminate the resources you've created!!!!!!!**
