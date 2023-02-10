@@ -352,7 +352,7 @@ nslookup www.begis.link an show two IP address
 Record Name:"showcname"
 Value/Route traffic to: 
   - "IP address or another value depending on the record type"
-    - enter "www.[your DNS name].net"
+    - enter "showcname.begis.link"
 Record Type : "CNAME"-Routes to another domain and some AWS resources
 TTL:"1m"
 ```
@@ -361,7 +361,7 @@ TTL:"1m"
 - Select newly created record's flag and hit the "create record" 
 tab seen bottom
 
-- After show "showcname.[your DNS name].net" on the browser. It will reflects the "www.[your DNS name].net". After that "Delete"  this record 
+- After show "showcname.begis.link" on the browser. It will reflects the "www.begis.link". After that "Delete"  this record 
 
 ## Part 5 - Creating a Alias Record:
 
@@ -380,7 +380,7 @@ Record Name:"www"
 Value/Route traffic to: 
     - Alias to *****S3 Website Endpoint*******
     - US East (N.Virginia) [us-east-1]
-    - choose your S3 bucket named "www.[your DNS name].net"
+    - choose your S3 bucket named "http://www.begis.link/"
 Record Type : A
 ```
 - hit the define simple record
@@ -389,7 +389,7 @@ Record Type : A
 tab seen bottom
 
 
-- go to the target domain name "www.[your DNS name].net" on browser
+- go to the target domain name "http://www.begis.link/" on browser
 
 - show the content of web page. It is the same as  S3 static web hosting page.
 
@@ -410,7 +410,7 @@ Record Name:"www"
 Value/Route traffic to: 
     - Alias to ***** ELB Endpoint*******
     - US East (N.Virginia) [us-east-1]
-    - choose your S3 bucket named "www.[your DNS name].net"
+    - choose your S3 bucket named "http://www.begis.link/"
 Record Type : A
 ```
 - hit the define simple record
@@ -419,7 +419,7 @@ Record Type : A
 tab seen bottom
 
 
-- go to the target domain name "www.[your DNS name].net" on browser
+- go to the target domain name "http://www.begis.link" on browser
 
 - show the content of web page. It is the same as S3 static web hosting page.
 
