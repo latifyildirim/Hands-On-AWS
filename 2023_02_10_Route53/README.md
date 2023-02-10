@@ -75,9 +75,9 @@ systemctl enable httpd
 
 ### STEP 3: Create Static WebSite Hosting :
 
- 1. Create Static WebSite Hosting-1/ "www.begis.link"
+ 1. Create Static WebSite Hosting-1/ "www.begis.link/"
  
-  - Go to S3 service and create a bucket with sub-domain name: "www.begis.link"
+  - Go to S3 service and create a bucket with sub-domain name: "www.begis.link/"
   - Public Access "Enabled"
   - Upload Files named "index.html" and "sorry.jpg" in "s3.bucket.www" folder
   - Permissions>>> Bucket Policy >>> Paste  bucket Policy
@@ -90,7 +90,7 @@ systemctl enable httpd
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::www.begis.link"
+            "Resource": "arn:aws:s3:::www.begis.link/"
         }
     ]
 }
@@ -324,7 +324,7 @@ tab seen bottom
 
 ### STEP 3: Add another IP (N. Virginia_2)  to the existing "A record" 
 
-- select "www.begis.link" A-record ---> Edit
+- select "www.begis.link/" A-record ---> Edit
 ```bash
 Name:"www"
 Value/Route traffic to:
@@ -333,7 +333,7 @@ Value/Route traffic to:
 ```
 
 - Check from local terminal
-nslookup www.begis.link an show two IP address 
+nslookup www.begis.link/ an show two IP address 
 
 
 ## Part 4 - Creating a CNAME Record:
@@ -361,7 +361,7 @@ TTL:"1m"
 - Select newly created record's flag and hit the "create record" 
 tab seen bottom
 
-- After show "showcname.begis.link" on the browser. It will reflects the "www.begis.link". After that "Delete"  this record 
+- After show "showcname.begis.link" on the browser. It will reflects the "www.begis.link/". After that "Delete"  this record 
 
 ## Part 5 - Creating a Alias Record:
 
@@ -419,7 +419,7 @@ Record Type : A
 tab seen bottom
 
 
-- go to the target domain name "http://www.begis.link" on browser
+- go to the target domain name "http://www.begis.link/" on browser
 
 - show the content of web page. It is the same as S3 static web hosting page.
 
