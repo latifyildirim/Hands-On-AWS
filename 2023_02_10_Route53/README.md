@@ -132,7 +132,7 @@ Parameters:
 Mappings:
   RegionImageMap:
     us-east-1:
-      AMI: ami-0c2b8ca1dad447f8a
+      AMI: ami-0aa7d40eeae50c9a9
     us-east-2:
       AMI: ami-0443305dabd4be2bc
     us-west-1:
