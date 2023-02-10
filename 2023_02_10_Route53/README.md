@@ -319,7 +319,7 @@ TTL:"1m"
 - Select newly created record's flag and hit the "create record" 
 tab seen bottom
 
-- After show "www.begis.link" on the browser, "Delete" this record 
+- After show "info.begis.link" on the browser, "Delete" this record 
 
 
 ### STEP 3: Add another IP (N. Virginia_2)  to the existing "A record" 
@@ -333,7 +333,7 @@ Value/Route traffic to:
 ```
 
 - Check from local terminal
-nslookup www.[your DNS name].net an show two IP address 
+nslookup www.begis.link an show two IP address 
 
 
 ## Part 4 - Creating a CNAME Record:
