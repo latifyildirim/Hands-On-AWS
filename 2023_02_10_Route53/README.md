@@ -319,12 +319,12 @@ TTL:"1m"
 - Select newly created record's flag and hit the "create record" 
 tab seen bottom
 
-- After show "info.[your DNS name].net" on the browser, "Delete" this record 
+- After show "www.begis.link" on the browser, "Delete" this record 
 
 
 ### STEP 3: Add another IP (N. Virginia_2)  to the existing "A record" 
 
-- select "www.[your DNS name].net" A-record ---> Edit
+- select "www.begis.link" A-record ---> Edit
 ```bash
 Name:"www"
 Value/Route traffic to:
