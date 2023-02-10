@@ -90,7 +90,7 @@ systemctl enable httpd
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::don't forget to change me/*"
+            "Resource": "arn:aws:s3:::www.begis.link"
         }
     ]
 }
