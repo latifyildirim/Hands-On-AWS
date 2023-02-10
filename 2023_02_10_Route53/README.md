@@ -75,12 +75,12 @@ systemctl enable httpd
 
 ### STEP 3: Create Static WebSite Hosting :
 
- 1. Create Static WebSite Hosting-1/ "www.[your domain name].net"
+ 1. Create Static WebSite Hosting-1/ "www.begis.link"
  
-  - Go to S3 service and create a bucket with sub-domain name: "www.[your sub-domain name].net"
+  - Go to S3 service and create a bucket with sub-domain name: "www.begis.link"
   - Public Access "Enabled"
   - Upload Files named "index.html" and "sorry.jpg" in "s3.bucket.www" folder
-  - Permissions>>> Bucket Policy >>> Paste bucket Policy
+  - Permissions>>> Bucket Policy >>> Paste  bucket Policy
 ```bash
 {
     "Version": "2012-10-17", 
