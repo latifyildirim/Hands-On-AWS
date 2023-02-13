@@ -369,7 +369,7 @@ button
 - Click "Create Hosted Zone"
 
 ```bash
-   Domain name: the same name of your domain(latifway.us)
+   Domain name: the same name of your domain(begis.link)
    Description: ---
    Type       :Private hosted zone
    VPCs to associate with the hosted zone
@@ -412,8 +412,8 @@ Routing: "Simple"
 
 - go to "Window" instance and connect it with RDP
 - open the Internet Explorer of "Window" instance 
-- type "www.latifway.us". show which content is seen "local instance content" in VPC 
-- go to the public browser than type browser: "www.latifway.us" than show that, N.Virginia instance is seen on public internet.
+- type "www.begis.link". show which content is seen "local instance content" in VPC 
+- go to the public browser than type browser: "www.begis.link" than show that, N.Virginia instance is seen on public internet.
 
 ### STEP 4: Cleaning 
 - Delete Instances.
