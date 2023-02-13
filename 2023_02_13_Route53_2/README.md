@@ -230,7 +230,7 @@ Record Type : A
 TTL:"60"
 Value/Route traffic to : 
   - "Ip address or another value depending on the record type"
-    - enter IP IP address of N.Virginia_1 
+    - 54.173.16.122 #enter IP IP address of N.Virginia_1 
 Routing: "Failover"
 Failover record type    : Primary
 Health check            : latifhealthcheck
