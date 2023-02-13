@@ -1,4 +1,4 @@
-# Hands-on : Route 53- 02
+# Hands-on : Route 53- 02 
 
 Purpose of the this hands-on training is to creating a DNS record sets and implement Route 53 routing policies. 
 
