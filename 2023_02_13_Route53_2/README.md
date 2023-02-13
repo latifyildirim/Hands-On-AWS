@@ -135,9 +135,9 @@ Sec Group: RDP---->0.0.0.0/0
 
 ### STEP 3: Create a Static WebSite Hosting :(or use existing one from former session)
 
- 1. Create Static WebSite Hosting-1/ "www.[your sub-domain name].net"
+ 1. Create Static WebSite Hosting-1/ "www.begis.link"
  
-  - Go to S3 service and create a bucket with sub-domain name: "www.[your sub-domain name].net"
+  - Go to S3 service and create a bucket with sub-domain name: "www.begis.link"
   - Public Access "Enabled"
   - Upload Files named "index.html" and "sorry.jpg" in "s3.bucket.www" folder
   - Permissions>>> Bucket Policy >>> Paste bucket Policy
@@ -255,7 +255,7 @@ TTL:"60"
 Value/Route traffic to : 
   - "Alias to S3 website endpoint"
   - N.Virginia(us-east-1)
-  - Choose your S3 bucket named "www.[your sub-domain name].net"
+  - Choose your S3 bucket named "www.begis.link"
 Routing: "Failover" 
 Failover record type    : Secondary
 Health check            : keep it as is
