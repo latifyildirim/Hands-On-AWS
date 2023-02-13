@@ -392,7 +392,7 @@ Record Type : A
 TTL:"60"
 Value/Route traffic to : 
   - "Ip address or another value depending on the record type"
-    - enter IP IP address of "N.Virginia" 
+    - 34.207.58.9 #enter IP IP address of "N.Virginia" 
 Routing: "Simple"
 ```
 
@@ -406,7 +406,7 @@ Record Type : A
 TTL:"60"
 Value/Route traffic to : 
   - "Ip address or another value depending on the record type"
-    - enter IP IP address of "Local" 
+    - 3.85.22.164 #enter IP IP address of "Local" 
 Routing: "Simple"
 ```
 
