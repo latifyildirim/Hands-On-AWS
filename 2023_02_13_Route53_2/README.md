@@ -291,7 +291,7 @@ Record Type : A
 TTL:"60"
 Value/Route traffic to : 
   - "Ip address or another value depending on the record type"
-    - "IP of Geo-Asia Instance"
+    - 54.162.233.102 #"IP of Geo-Asia Instance"
 Routing: "Geolocation" 
 Location               :
   - Countries Japan
@@ -317,7 +317,7 @@ Record Type : A
 TTL:"60"
 Value/Route traffic to : 
   - "Ip address or another value depending on the record type"
-    - "IP of Geo-Europe Instance"
+    - 44.201.24.0 #"IP of Geo-Europe Instance"
 Routing: "Geolocation "
 Location               :
   - Countinent : Europe
