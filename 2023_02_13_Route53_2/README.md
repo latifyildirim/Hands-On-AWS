@@ -177,7 +177,7 @@ Specify endpoint by : IP address
 
 Protocol            : HTTP
 
-IP address          : N.Virginia_1 IP address
+IP address          : 54.173.16.122 #N.Virginia_1 IP address
 
 Hostname:           : -
 
