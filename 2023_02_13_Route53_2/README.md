@@ -169,7 +169,7 @@ Sec Group: RDP---->0.0.0.0/0
 - Configure Health Check
 
 ```bash 
-1. Name: firsthealthcheck
+1. Name: latifhealthcheck
 
 What to monitor     : Endpoint
 
@@ -233,7 +233,7 @@ Value/Route traffic to :
     - enter IP IP address of N.Virginia_1 
 Routing: "Failover"
 Failover record type    : Primary
-Health check            : firsthealthcheck
+Health check            : latifhealthcheck
 Record ID               : Failover Scenario-primary
 ```
 - click defined Failover record button
