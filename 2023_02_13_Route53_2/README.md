@@ -344,7 +344,7 @@ Record Type : A
 TTL:"60"
 Value/Route traffic to : 
   - "Ip address or another value depending on the record type"
-    - "IP of N.Virginia"
+    - 54.173.16.122 #"IP of N.Virginia"
 Routing: "Geolocation"  
 Location               : Select Default option
 Health check           : Keep it as is
