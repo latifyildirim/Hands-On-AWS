@@ -240,9 +240,9 @@ ping 10.7.2.20 (Private IP of Private Instance) # Don't forget to change the IP 
   200         All ICMP - IPv4   ICMP(1)       ALL               0.0.0.0/0         Allow
   |                                         |                                   |
   |                                         |                                   |
-  V                                         V                                   V
-  100         Custom TCP Rule   TCP(6)        32768 - 65535     0.0.0.0/0         Allow
-  200         All ICMP - IPv4   ICMP(1)       ALL               0.0.0.0/0         Allow
+  V                                         V                                   V       # 32768 - 65535 araligini acmaliyiz. Inbound Rule  de SSH 
+  100         Custom TCP Rule   TCP(6)        32768 - 65535     0.0.0.0/0         Allow # acik olmali. Ama geri dönerken Outbund da hangi porttan
+  200         All ICMP - IPv4   ICMP(1)       ALL               0.0.0.0/0         Allow # geri döndügünü bilmedigimiz icin bu araligi aciyoruz.
 
 # 12. Click save, go to the terminal and ssh to the private EC2 instance. Show you can ssh to it now.
 
