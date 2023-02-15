@@ -1,4 +1,4 @@
-# Hands-on Lambda-01 : Lambda Function and API Gateway.
+# Hands-on API Gateway 
 ##  Create a Lambda Function with API Gateway
 
 
