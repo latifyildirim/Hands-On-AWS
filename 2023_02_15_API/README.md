@@ -1,4 +1,5 @@
-## Part 3 - Create a Lambda Function with API Gateway
+# Hands-on Lambda-01 : Lambda Function and API Gateway.
+##  Create a Lambda Function with API Gateway
 
 
 STEP 1: Create Lambda Function
