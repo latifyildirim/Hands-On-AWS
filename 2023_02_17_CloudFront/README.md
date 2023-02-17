@@ -44,7 +44,7 @@
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::please paste your ARN name/*"
+            "Resource": "arn:aws:s3:::begis.link/*"
         }
     ]
 }
