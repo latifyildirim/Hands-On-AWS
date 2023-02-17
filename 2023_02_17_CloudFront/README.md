@@ -55,7 +55,7 @@
 
 - First of all we need to copy endpoint of S3 static website bucket.
 
-- Go to the S3 service click on S3 static website bucket >>> Properties >>> Static Web Hosting >>> Copy the endpoint (without http://).
+- Go to the S3 service click on S3 static website bucket >>> Properties >>> Static Web Hosting >>> Copy the endpoint (without http://www.begis.link.s3-website.eu-west-2.amazonaws.com).
 
 - Go to CloudFront service and select "Create distribution"
 
