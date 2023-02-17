@@ -102,7 +102,7 @@ Record Type : A
 - Select newly created record's flag and hit the "create record" 
 tab seen bottom
 
-- go to the target domain name "[your DNS name].net" on browser
+- go to the target domain name "begis.link" on browser
 
 - check it si working with "https protocol"
 
