@@ -21,7 +21,7 @@
 
 -  On Certificates page Click on your newly created certificate.
 
--  Status >>> Domain >>> [your donamin name] 
+-  Status >>> Domain >>> begis.link
 
 -  Then at the bottom of the page click "Create record in Route 53" button.
 
