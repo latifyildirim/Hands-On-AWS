@@ -8,6 +8,8 @@
 
       -  Add domain names          : "begis.link" (naked domain name) and click next
 
+       -  Add domain names          : "*.begis.link" (sub naked domain name) and click next
+
       -  Select validation method  : "DNS validation"
   
       -  Add tags                  : Skip this part
