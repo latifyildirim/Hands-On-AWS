@@ -67,7 +67,7 @@
       - Viewer Protocol Policy: Select "Redirect HTTP to HTTPS"
    
   - Distribution Settings
-      - Alternate Domain Names (CNAMEs): [your donamin name]
+      - Alternate Domain Names (CNAMEs): begis.link
       - SSL Certificate: Select "Custom SSL Certificate (example.com)" >>> select your newly created certificate
      
 - Leave the other settings as default.
