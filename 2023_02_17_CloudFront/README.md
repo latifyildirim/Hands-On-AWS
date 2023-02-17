@@ -68,7 +68,7 @@
    
   - Distribution Settings
       - Alternate Domain Names (CNAMEs): begis.link
-      - SSL Certificate: Select "Custom SSL Certificate (example.com)" >>> select your newly created certificate
+      - SSL Certificate: Select "Custom SSL Certificate (begis.link (7e63cffa-01c9-45af-ac08-f7e4b71be2d9))" >>> select your newly created certificate
      
 - Leave the other settings as default.
 
