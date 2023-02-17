@@ -114,7 +114,7 @@ Step-1 - Invalidation
 
  - Go to your S3 bucket hosting the website and put the "ryu.jpg" file in the "v2" folder (not in v1) to your bucket. 
 
- - Go to the target domain name "[your DNS name].net" on browser and notice the image has't been changed.
+ - Go to the target domain name "begis.link" on browser and notice the image has't been changed.
  
  - Go to the CloudFront Menu and select the newly created distribution.
  
