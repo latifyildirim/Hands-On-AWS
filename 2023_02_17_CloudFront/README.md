@@ -62,7 +62,7 @@
 - Select a delivery method for your content: Choose "Web" option and click on "Get Started"
 - Create Distribution : 
   - Origin Settings: 
-      - Origin Domain Name: Paste the "endpoint" (without https://) of the S3 bucket
+      - Origin Domain Name: Paste the "endpoint" (without http://www.begis.link.s3-website.eu-west-2.amazonaws.com) of the S3 bucket
   - Default Cache Behavior Settings
       - Viewer Protocol Policy: Select "Redirect HTTP to HTTPS"
    
