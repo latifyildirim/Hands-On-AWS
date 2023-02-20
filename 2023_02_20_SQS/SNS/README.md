@@ -11,7 +11,7 @@
 - `Details`.
     - Type: Standart
     - Name: Demo-topic
-    - Display Name: My-First-Topic
+    - Display Name: Latifs-Topic
 
 - Keep rest default.
 
@@ -24,7 +24,7 @@
 - `Details`.
     - Topic ARN: arn:aws:sns:us-east-1:046402772087:Demo-topic (comes default)
     - Protocol: Email
-    - Endpoint: test@example.com (your mail here)
+    - Endpoint: lyildirim.3017@gmail.com 
 
 - Keep rest default.
 
@@ -36,7 +36,7 @@
 
 - Go to your mail and check inbox.
 
-- Open mail from `My-First-Topic`.
+- Open mail from `Latifs-Topic`.
 
 - Click `Confirm subscription`.
 
@@ -64,7 +64,7 @@
 
 - Go to your mail and check inbox.
 
-- Open mail from `My-First-Topic`.
+- Open mail from `Latifs-Topic`.
 
 - Show the topic and the test message sent from SNS.
 
@@ -110,7 +110,7 @@
 
 - Go to your mail and check inbox.
 
-- Open mail from `My-First-Topic`.
+- Open mail from `Latifs-Topic`.
 
 - Show the topics and the messages sent from SNS.
 
