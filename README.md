@@ -58,7 +58,7 @@ Zweck dieser praktischen Schulung ist die Erstellung einer EC2-Instanz und die I
 Zweck dieser praktischen Schulung ist es, Ihnen das Verständnis zu vermitteln, einen manuellen Snapshot von der RDS DB-Instance zu erstellen, die RDS DB-Instance aus diesem Snapshot wiederherzustellen und die RDS DB-Instance zu einem bestimmten Zeitpunkt wiederherzustellen. Wir benutzen die RDS-Kiste in der vorherigen Sitzung.
 
 ### 🔖 [2023_01_31_DynamoDB](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_31_DynamoDB/README.md)
-In diesem praktischen Training lernen Sie, DynamoDB-Tabellen zu erstellen, DynamoDB-Datenbanken zu bearbeiten und Abfragen auf DynamoDB-Tabellen auszuführen.
+In diesem praktischen Training lernen wir, DynamoDB-Tabellen zu erstellen, DynamoDB-Datenbanken zu bearbeiten und Abfragen auf DynamoDB-Tabellen auszuführen.
 
 ### 🔖 [2023_02_03_EFS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_03_EFS/README.md)
 Der Zweck dieses praktischen Tutorials ist, wie man EFS erstellt und den EFS an mehrere EC2 Linux 2 Instanzen anschließt.
