@@ -1,5 +1,5 @@
 # AWS CLI
-# Guile - 01_20_2023
+# Latif - 01_20_2023
 
 # References
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
@@ -57,15 +57,15 @@ aws iam delete-user --user-name aws-cli-user
 # S3
 aws s3 ls
 
-aws s3 mb s3://guile-cli-bucket
+aws s3 mb s3://latif-cli-bucket
 
-aws s3 cp in-class.yaml s3://guile-cli-bucket
+aws s3 cp in-class.yaml s3://latif-cli-bucket
 
-aws s3 ls s3://guile-cli-bucket
+aws s3 ls s3://latif-cli-bucket
 
-aws s3 rm s3://guile-cli-bucket/in-class.yaml
+aws s3 rm s3://latif-cli-bucket/in-class.yaml
 
-aws s3 rb s3://guile-cli-bucket
+aws s3 rb s3://latif-cli-bucket
 
 
 # EC2
