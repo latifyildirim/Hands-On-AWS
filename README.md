@@ -42,8 +42,8 @@ Ziel dieser praktischen Schulung ist es, den Schülern grundlegende Kenntnisse z
 ### 🔖 [2023_01_16_Simple_Storage_Service](https://github.com/latifyildirim/aws-hands-on/tree/main/2023_01_16_S3_2)
 Purpose of the this hands-on training is to instruct students how to to create a S3 bucket, how to configure S3 to host static website and to give understanding to versioning and logging.
 
-### 🔖 []()
-
+### 🔖 [2023_01_17_S3_Replication](https://github.com/latifyildirim/aws-hands-on/tree/main/2023_01_17_S3_02)
+In diesem praktischen Training wird erläutert, wie Sie einen S3-Bucket erstellen, S3 für das Hosten statischer Websites konfigurieren, den Lebenszyklus von Objekten verwalten und die Bucket-Replikation implementieren.
 
 ### 🔖 []()
 
