@@ -27,13 +27,76 @@ Zweck dieser praktischen Schulung ist es, zu erfahren, wie man einen S3 Glacier-
 ### 🔖 [2022_01_02_NGINX](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_02_EC2_02/README.md)
 Ziel dieser praktischen Schulung ist es, den Schülern grundlegende Kenntnisse zur Installation von Nginx Web Server auf einer Amazon Linux 2 EC2-Instance zu vermitteln.
 
-### 🔖 [2022_01_02_NGINX](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_02_EC2_02/README.md)
-Ziel dieser praktischen Schulung ist es, den Schülern grundlegende Kenntnisse zur Installation von Nginx Web Server auf einer Amazon Linux 2 EC2-Instance zu vermitteln.
-
 ### 🔖 [2022_01_02_Launch_Template](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_02_EC2_02/README.md)
 Ziel dieser praktischen Schulung ist es, den Schülern zu vermitteln, wie sie Launch Template auf der AWS Console mit Benutzerdaten erstellen und Launch Templates installieren können.
 
 ### 🔖 [2022_01_09_Elastic_Load_Balancers](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_09_ALB/README.md)
 Zweck dieser praktischen Schulung ist es, den Arbeitsprozess des Application Load Balancer (ALB) zu erlernen. Insbesondere werden wir die Details der AWS-Lösungssuite behandeln und erläutern, wie Sie eine grundlegende ALB einrichten.
+
+### 🔖 [2023_01_10_Snapshots_AMI](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_10_snapshots_AMI/README.md)
+Ziel dieser praktischen Schulung ist es, den Teilnehmern beizubringen, wie man einen Snapshot der EC2-Instance erstellt, ein Image von der EC2-Instance erstellt und Data Lifecycle Manager verwendet.
+
+### 🔖 [2023_01_13_Auto_Scaling](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_13_ASG_ELB_LT_Policy/README.md)
+Ziel dieser praktischen Schulung ist es, den Schülern grundlegende Kenntnisse zur Konfiguration von AWS Load Balancern mit Auto Scaling Group und Launch Template zu vermitteln.
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+### 🔖 []()
+
+
+
+
+
+
+
+
 
 
