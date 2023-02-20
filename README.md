@@ -45,11 +45,11 @@ Purpose of the this hands-on training is to instruct students how to to create a
 ### 🔖 [2023_01_17_S3_Replication](https://github.com/latifyildirim/aws-hands-on/tree/main/2023_01_17_S3_02)
 In diesem praktischen Training wird erläutert, wie Sie einen S3-Bucket erstellen, S3 für das Hosten statischer Websites konfigurieren, den Lebenszyklus von Objekten verwalten und die Bucket-Replikation implementieren.
 
-### 🔖 []()
+### 🔖 [2023_01_20_CLI](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_20_CLI/Inclass-Notes.sh)
+Der Zweck dieses praktischen Tutorials besteht darin, das Erstellen und Löschen von Buckets in S3, EC2 Starten und Beenden über die AWS-Befehlszeilenschnittstelle zu verstehen.
 
-
-### 🔖 []()
-
+### 🔖 [2023_01_23_RDS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_23_RDS/README.md)
+Zweck dieser praktischen Schulung ist die Konfiguration der RDS-Instance über die AWS Management Console und die Verbindung über die MySQL Workbench.
 
 ### 🔖 []()
 
