@@ -22,7 +22,7 @@
 - On Demo-topic page Click `Create subscription`.
 
 - `Details`.
-    - Topic ARN: arn:aws:sns:us-east-1:046402772087:Demo-topic (comes default)
+    - Topic ARN: arn:aws:sns:us-east-1:768013060882:Demo-topic (comes default)
     - Protocol: Email
     - Endpoint: lyildirim.3017@gmail.com 
 
