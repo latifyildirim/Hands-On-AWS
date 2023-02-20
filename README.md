@@ -39,8 +39,8 @@ Ziel dieser praktischen Schulung ist es, den Teilnehmern beizubringen, wie man e
 ### 🔖 [2023_01_13_Auto_Scaling](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_13_ASG_ELB_LT_Policy/README.md)
 Ziel dieser praktischen Schulung ist es, den Schülern grundlegende Kenntnisse zur Konfiguration von AWS Load Balancern mit Auto Scaling Group und Launch Template zu vermitteln.
 
-### 🔖 []()
-
+### 🔖 [2023_01_16_Simple_Storage_Service](https://github.com/latifyildirim/aws-hands-on/tree/main/2023_01_16_S3_2)
+Purpose of the this hands-on training is to instruct students how to to create a S3 bucket, how to configure S3 to host static website and to give understanding to versioning and logging.
 
 ### 🔖 []()
 
