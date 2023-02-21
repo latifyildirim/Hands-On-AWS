@@ -10,7 +10,7 @@ AWS Hands On Studies  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7
 ## Index 📜
 
 ### 🔖 [2022_12_15_Apache](https://github.com/latifyildirim/aws-hands-on/blob/main/2022_12_15_Apache/ec2-apache-install.sh)
-Der Zweck dieses praktischen Tutorials ist die Installation von Apache Web Server auf EC2 Linux 2
+Der Zweck dieses praktischen Tutorials ist die Installation von Apache Web Server auf EC2 Linux 2.
 
 ### 🔖 [2022_12_16_IAM](https://github.com/latifyildirim/aws-hands-on/blob/main/2022_12_16_IAM/IAM%20.md)
 Zweck dieser praxisorientierten Schulung ist es, ein grundlegendes Verständnis für die Verwendung von IAM und IAM-Komponenten zu vermitteln.
@@ -51,46 +51,47 @@ Der Zweck dieses praktischen Tutorials besteht darin, das Erstellen und Löschen
 ### 🔖 [2023_01_23_RDS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_23_RDS/README.md)
 Zweck dieser praktischen Schulung ist die Konfiguration der RDS-Instance über die AWS Management Console und die Verbindung über die MySQL Workbench.
 
-### 🔖 []()
+### 🔖 [2023_01_27_MariaDB](https://github.com/latifyildirim/aws-hands-on/tree/main/2023_01_27_MariaDB)
+Zweck dieser praktischen Schulung ist die Erstellung einer EC2-Instanz und die Installation von MariaDB Server, die Verbindung und Konfiguration der MariaDB-Datenbank, die Manipulation der MariaDB-Datenbank und die Erstellung einer Clientinstanz sowie die Remoteverbindung mit der MariaDB-Serverinstanz.
 
-### 🔖 []()
+### 🔖 [2023_01_30_Restoring_RDS_DB_Instance](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_30_Restoring_RDS_DB/README.md)
+Zweck dieser praktischen Schulung ist es, Ihnen das Verständnis zu vermitteln, einen manuellen Snapshot von der RDS DB-Instance zu erstellen, die RDS DB-Instance aus diesem Snapshot wiederherzustellen und die RDS DB-Instance zu einem bestimmten Zeitpunkt wiederherzustellen. Wir benutzen die RDS-Kiste in der vorherigen Sitzung.
 
+### 🔖 [2023_01_31_DynamoDB](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_31_DynamoDB/README.md)
+In diesem praktischen Training lernen wir, DynamoDB-Tabellen zu erstellen, DynamoDB-Datenbanken zu bearbeiten und Abfragen auf DynamoDB-Tabellen auszuführen.
 
-### 🔖 []()
+### 🔖 [2023_02_03_EFS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_03_EFS/README.md)
+Der Zweck dieses praktischen Tutorials ist, wie man EFS erstellt und den EFS an mehrere EC2 Linux 2 Instanzen anschließt.
 
+### 🔖 [2023_02_06_VPC_1](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_06_VPC_1/README.md)
+Zweck dieser praktischen Schulung ist es, VPC zu erstellen und VPC mit Komponenten zu konfigurieren.
 
-### 🔖 []()
+### 🔖 [2023_02_07_VPC_2](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_07_VPC_2/README.md)
+Zweck dieser praktischen Schulung ist es, Bastion Host zu erstellen und sich vom Internet aus mit dem privaten Subnetz zu verbinden, NAT Gateway und NAT Instance zu erstellen.
 
+### 🔖 [2023_02_09_VPC_3](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_09_VPC_3/README.md)
+Zweck dieser praktischen Schulung ist es, VPC-Peering zu erstellen, Ressourcen von verschiedenen VPCs zu verbinden und S3 VPC-Endpunkte zu erstellen.
 
-### 🔖 []()
+### 🔖 [2023_02_10_Route53_1](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_10_Route53-1/README.md)
+Zweck dieser praktischen Schulung ist die Erstellung eines DNS-Datensatzes.
 
+### 🔖 [2023_02_13_Route53_2](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_13_Route53_2/README.md)
+Zweck dieser praktischen Schulung ist die Erstellung eines DNS-Datensatzes und die Implementierung von Route 53-Routing-Richtlinien.
 
-### 🔖 []()
+### 🔖 [2023_02_14_VPC_4](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_14_VPC_4/VPC4-LAMP-NACL.sh)
+Zweck dieser praktischen Schulung ist es, LAMP-Stack mit Wordpress zu erstellen und NACL zu konfigurieren.
 
+### 🔖 [2023_02_15_Lambda_API_Gateway](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_15_Lambda_API_Gateway/README.md)
+Die Themen für diese praktische Sitzung sind AWS Lambda, Function as a Service (FaaS). Während dieses Playground werden wir zwei AWS S3 Buckets erstellen und diese mit AWS Lambda synchronisieren. Darüber hinaus werden wir die Verbindung zwischen Lambda und API Gateway zeigen.
 
-### 🔖 []()
+### 🔖 [2023_02_17_CloudFront](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_17_CloudFront/README.md)
+Ziel dieser praktischen Schulung ist es, Cloudfront mit Route53, ACM und S3 als statische Website zu konfigurieren.
 
+### 🔖 [2023_02_20_SNS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_20_SNS/README.md)
+Der Zweck dieses praktischen SNS-Trainings besteht darin, ein Thema, ein Abonnement, eine Nachricht zu erstellen und ein CloudWatch-Ereignis (Amazon EventBridge) zum Aufrufen von SNS zu erstellen.
 
-### 🔖 []()
-
-
-### 🔖 []()
-
-
-### 🔖 []()
-
-
-### 🔖 []()
-
-
-### 🔖 []()
-
-
-### 🔖 []()
-
-
-### 🔖 []()
-
+### 🔖 [2023_02_20_SQS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_20_SQS/README.md)
+Der Zweck dieses praktischen SQS-Tutorials besteht darin, Warteschlangen zu erstellen, Nachrichten zu senden und zu empfangen und Lambda-Funktionen zu erstellen, die von SQS ausgelöst werden sollen.
 
 
 
