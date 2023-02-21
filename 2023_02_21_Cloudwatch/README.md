@@ -129,7 +129,7 @@ Notification:
   - Alarm state trigger : In alarm
   - Select an SNS topic : 
     - Create new topic
-      - Create a new topic… : Clarus-alarm
+      - Create a new topic… : Latif-alarm
       - Email endpoints that will receive the notification…
 : <your email adress>
     - create topic
@@ -450,7 +450,7 @@ STEP 2 : Create IAM role
 - Add tags ---> Next
 
 - Review
-	- Role Name : Claruscloudwatchlog  
+	- Role Name : Latifcloudwatchlog  
   - Role Description: Latif Cloudwatch EC2 logs access role
 
 - click create role
