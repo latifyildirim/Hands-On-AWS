@@ -93,7 +93,7 @@ Der Zweck dieses praktischen SNS-Trainings besteht darin, ein Thema, ein Abonnem
 ### 🔖 [2023_02_20_SQS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_20_SQS/README.md)
 Der Zweck dieses praktischen SQS-Tutorials besteht darin, Warteschlangen zu erstellen, Nachrichten zu senden und zu empfangen und Lambda-Funktionen zu erstellen, die von SQS ausgelöst werden sollen.
 
-### 🔖 [2023_02_21_SQS](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_21_Cloudwatch/README.md)
+### 🔖 [2023_02_21_Cloudwatch](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_21_Cloudwatch/README.md)
 Zweck dieser praktischen Schulung ist es, Dashboard, Cloudwatch Alarm zu erstellen, die Ereignisoption zu konfigurieren und die Anmeldung einzurichten.
 
 
