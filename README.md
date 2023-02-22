@@ -96,8 +96,9 @@ Der Zweck dieses praktischen SQS-Tutorials besteht darin, Warteschlangen zu erst
 ### 🔖 [2023_02_21_Cloudwatch](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_21_Cloudwatch/README.md)
 Zweck dieser praktischen Schulung ist es, Dashboard, Cloudwatch Alarm zu erstellen, die Ereignisoption zu konfigurieren und die Anmeldung einzurichten.
 
+### 🔖 [2023_02_22_ElasticBeanstalk](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_22_ElasticBeanstalk/README.md)
+Der Zweck dieses praktischen Tutorials ist es, die PHP-Anwendung mit ElasticBeanStalk zu starten
 
-
-
-
+### 🔖 [2023_02_22_Boto3](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_02_22_Boto3/README.md)
+Der Zweck dieser praktischen Schulung ist die Installation, Konfiguration und Beispiele von Boto3.
 
