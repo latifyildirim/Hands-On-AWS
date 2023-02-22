@@ -65,7 +65,7 @@ import boto3
 s3 = boto3.resource('s3')
 
 # Create a new bucket
-s3.create_bucket(Bucket='guiles-boto3-bucket')
+s3.create_bucket(Bucket='latifs-boto3-bucket')
 
 # Print out all bucket names
 for bucket in s3.buckets.all():
@@ -91,9 +91,9 @@ s3 = boto3.resource('s3')
 
 # Upload a new file
 data = open('test.jpg', 'rb')
-s3.Bucket('guiles-boto3-bucket').put_object(Key='test.jpg', Body=data)
+s3.Bucket('latifs-boto3-bucket').put_object(Key='test.jpg', Body=data)
 ```
-- Check the "guiles-boto3-bucket", if your script works fine, you should be able to see your test file in your bucket.
+- Check the "latifs-boto3-bucket", if your script works fine, you should be able to see your test file in your bucket.
 
 ### STEP-4: Launch, Stop and Terminate Instances
 
@@ -106,11 +106,11 @@ ec2 = boto3.resource('ec2')
 
 # create a new EC2 instance
 instances = ec2.create_instances(
-     ImageId='ami-09e67e426f25ce0d7', # ubuntu ami id
+     ImageId='ami-0dfcb1ef8550277af', # linux 2 ami id
      MinCount=1,
      MaxCount=1,
      InstanceType='t2.micro',
-     KeyName='yourkeypair without .pem here' # put your keypair
+     KeyName='latif' # put your keypair
  )
 ```
 
@@ -122,7 +122,7 @@ instances = ec2.create_instances(
 ```text
 import boto3
 ec2 = boto3.resource('ec2')
-ec2.Instance('your InstanceID').stop() # put your instance id
+ec2.Instance('i-0c014926eff050045').stop() # put your instance id
 ```
 
 - Create a file a called ec2terminate.py and put the code below in it to terminate EC2 instance via boto3.
