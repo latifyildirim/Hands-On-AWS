@@ -125,12 +125,23 @@ ec2 = boto3.resource('ec2')
 ec2.Instance('i-0c014926eff050045').stop() # put your instance id
 ```
 
+- List the instances and their status
+
+```
+import boto3
+ec2 = boto3.resource('ec2')
+for instance in ec2.instances.all():
+    print (instance.id, instance.state)
+```
+
+
+
 - Create a file a called ec2terminate.py and put the code below in it to terminate EC2 instance via boto3.
 
 ```text
 import boto3
 ec2 = boto3.resource('ec2')
-ec2.Instance('your InstanceID').terminate() # put your instance id
+ec2.Instance('i-0c014926eff050045').terminate() # put your instance id
 ```
 - Check the EC2 instance status from console.
 
