@@ -416,7 +416,7 @@ Rate limit:         100 (this means max of 100 requests in 5 minutes)
 #!/bin/bash
 for x in {1..200}
 do
-        output=$(curl -s http://osvaldo-1560583834.us-east-1.elb.amazonaws.com/ | grep h1)
+        output=$(curl -s http://latif-4280370.us-east-1.elb.amazonaws.com/ | grep h1)
         echo $x - $output
         sleep 0.5
 done
