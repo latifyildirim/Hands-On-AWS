@@ -570,7 +570,7 @@ Network                 :
 - For defining trigger for creating objects
 ```text
 Trigger configuration   : S3
-Bucket                  : awscapstonec3<name>blog
+Bucket                  : awscapstonec3latifblog
 Event type              : All object create events
 Check the warning message and click add ---> sometimes it says overlapping situation. When it occurs, try refresh page and create a new trigger or remove the s3 event and recreate again. then again create a trigger for lambda function
 ```
@@ -579,7 +579,7 @@ Check the warning message and click add ---> sometimes it says overlapping situa
 ```bash
 
 Trigger configuration   : S3
-Bucket                  : awscapstonec3<name>blog
+Bucket                  : awscapstonec3latifblog
 Event type              : All object delete events
 Check the warning message and click add ---> sometimes it says overlapping situation. When it occurs, try refresh page and create a new trigger or remove the s3 event and recreate again. then again create a trigger for lambda function
 ```
