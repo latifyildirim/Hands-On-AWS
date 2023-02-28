@@ -537,7 +537,7 @@ click create
 Before we create our Lambda function, we should create IAM role that we'll use for Lambda function. Go to the IAM console and select role on the left hand menu, then create role button
 ```text
 Select Lambda as trusted entity ---> click Next:Permission
-Choose: - LambdaS3fullaccess, 
+Choose: - S3fullaccess, 
         - Network Administrator
         - DynamoDBFullAccess
 No tags
