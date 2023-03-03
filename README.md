@@ -21,9 +21,6 @@ Der Zweck dieser praktischen Schulung besteht darin, Vorgänge zum Erstellen, Zu
 ### 🔖 [2022_12_18_S3](https://github.com/latifyildirim/aws-hands-on/tree/main/2022_12_18_S3_1)
 Zweck dieser praktischen Schulung ist es, zu erfahren, wie man einen S3-Bucket erstellt, S3 zum Hosten einer statischen Website konfiguriert, den Lebenszyklus von Objekten verwaltet und die Bucket-Replikation implementiert.
 
-### 🔖 [2022_12_20_S3_Glacier](https://github.com/latifyildirim/aws-hands-on/tree/main/2022_12_20_S3_Glacier)
-Zweck dieser praktischen Schulung ist es, zu erfahren, wie man einen S3 Glacier-Bucket erstellt, den Lebenszyklus von Objekten verwaltet und die Bucket-Replikation implementiert.
-
 ### 🔖 [2022_01_02_NGINX](https://github.com/latifyildirim/aws-hands-on/blob/main/2023_01_02_EC2_02/README.md)
 Ziel dieser praktischen Schulung ist es, den Schülern grundlegende Kenntnisse zur Installation von Nginx Web Server auf einer Amazon Linux 2 EC2-Instance zu vermitteln.
 
