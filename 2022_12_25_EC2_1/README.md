@@ -1,4 +1,0 @@
-## Stress Araci Yukleme Komutlari
-- yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-- yum install stress
-- stress --cpu  80 --timeout 2000
