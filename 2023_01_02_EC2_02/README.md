@@ -1,199 +1,110 @@
-# Hands-on EC2-03 : Creating an Instance with Launch Template and Versioning
+# Hands-on EC2-02 : How to Install Nginx Web Server on EC2 Linux 2
 
-Purpose of the this hands-on training is to give the students understanding of how to create Launch Template on AWS Console with `user data` and how to version Launch Templates.
+Purpose of the this hands-on training is to give the students basic knowledge of how to install Nginx Web Server on Amazon Linux 2 EC2 instance.
 
 ## Learning Outcomes
 
 At the end of the this hands-on training, students will be able to;
 
-- create and configure Launch Templates.
+- demonstrate their knowledge of how to launch AWS EC2 Instance.
 
-- modify Launch Template with versioning.
+- establish a connection with AWS EC2 Instance with SSH.
+
+- install the Nginx Server on Amazon Linux 2 Instance.
+
+- configure the Nginx Server to run simple HTML page.
+
+- write a simple bash script to run the Web Server
+
+- automate the process of installation and configuration of a Web Server using the `user-data` script of EC2 Instance.
 
 ## Outline
 
-- Part 1 - Creating Launch Templates
+- Part 1 - Launching an Amazon Linux 2 EC2 instance and Connect with SSH
 
-- Part 2 - Modifying Launch Templates
+- Part 2 - Installing and Configuring Nginx Web Server to Run a Simple Web Page
 
-## Part 1 - Creating Launch Templates
+- Part 3 - Automation of Web Server Installation through Bash Script
 
-### Step 1: Create Security Group
+## Part 1 - Launching an Amazon Linux 2 EC2 instance and Connect with SSH
 
-1. Create a Security Group to be used in Launch Template.
+1.  Launch an Amazon 2 EC2 instance with AMI as `Amazon Linux 2`, instance type as `t2.micro` and security 
+group which allows connections from anywhere for port 22(SSH) and port 80(HTTP).
 
-
-Launch_Temp_Sec_group: SSH 22, HTTP 80 ----> anywhere(0.0.0.0/0)
-
-
-### STEP 2: Create Launch Template
-
-2. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
-
-3. On the navigation pane, under `INSTANCES`, choose `Launch Templates`.
-
-4. Click on `Create launch template`.
-
-5. Enter a name and provide a description for the initial version of the launch template.
-
-
-Name                         : MyClaruswayTemplate
-
-Template version description : Origin
-
-
-6. Autoscaling Guidance
-
-
-Keep it as default
-
-
-7. Template Tags
-
-
-Keep it as is
-
-
-8. Source Template :
-
-
-Keep it as is
-
-
-9. Amazon machine image (AMI)
-
-
-Amazon Linux 2 AMI (HVM), SSD Volume Type
-ami-090fa75af13c156b4
-
-10. Instance Type
-
-
-t2.micro
-
-
-11. Key pair
-
-
-Please select your key pair (pem key) that is created before
-Example: clarusway.pem
-
-
-12. Security groups
-
-
-Security Group Name: Launch_Temp_Sec_group
-
-
-13. Storage (volumes)
-
-
-we keep it as is  (Volume 1 (AMI Root) (8 GiB, EBS, General purpose SSD (gp2)))
-
-
-14. Resource tags
-
-
-Key             : Name
-Value           : Webserver-Origin
-Resource type   : Instance
-
-
-15. Network interfaces
-
-
-Keep it as is
-
-
-16. Advance details
-
-
-Keep it as is
-
-
-### Step 3: Create an Instance with Launch Template
-
-17. Go to `Launch Template` Menu
-
-18. Select `MyClaruswayTemplate` ---> `Actions` ---> `Launch Instance from Template`
-
-19. Enter number of instance as `1`.
-
-20. Keep the rest of settings as is and click the `Launch instance from template` at the bottom.
-
-21. Go to EC2 Instance menu and show the created instance.
-
-## Part 4 - Modifying Launch Template
-
-### Step 1: Launch Template Version 2
-
-22. Go to Launch Template menu on the left hand pane
-
-23. Select template named `MyClaruswayTemplate` ---> `Actions` ---> `Modify template (Create New Version)`
-
-24. Template version description
-
-
-V2 nginx
-
-
-25. Key pair
-
-
-Select your .pem file name
-
-
-26. Resource tags
-
-
-Key             : Name
-Value           : Webserver-V2
-Resource type   : Instance
-
-
-27. Go to `Advance Details` on the bottom and add the script given below into the `user data` field.
+2. Connect to your instance with SSH.
 
 ```
-#!/bin/bash
-
-yum update -y
-amazon-linux-extras install nginx1
-systemctl enable nginx
-systemctl start nginx
+ssh -i [Your Key pair] ec2-user@[Your EC2 IP / DNS name]
 ```
 
-28. Go to `Launch Template` Menu and click on `MyClaruswayTemplate`.
+## Part 2 - Installing and Configuring Nginx Web Server to Run a Simple Web Page
 
-29. Select version `2` from the `Versions` tab.
+1. Update the installed packages and package cache on your instance.
+```
+sudo yum update -y
+```
+2. Install the Nginx Web Server.
+```
+sudo amazon-linux-extras enable nginx1
+sudo yum info nginx --showduplicates
+sudo yum install nginx-1.20.0
+```
+or
+```
+sudo amazon-linux-extras install nginx1
+```
+
+3. Start the Nginx Web Server.
+```
+sudo systemctl start nginx
+```
+4. Check from browser with public IP/DNS
 
 
-Version         : 2
-Description     : V2 nginx
+5. Go to /usr/share/nginx/html folder.
+```
+cd /usr/share/nginx/html
+```
+6. Show content of folder and change the permissions of /usr/share/nginx/html
+```
+ls
+sudo chmod -R 777 /usr/share/nginx/html
+```
+7. Remove existing `index.html`.
+```
+sudo rm index.html
+```
+8. Upload new `index.html` and `ken.jpg` files with `wget` command. Show the github and explain the RAW .
+```
+wget https://raw.githubusercontent.com/awsdevopsteam/route-53/master/index.html
+wget https://raw.githubusercontent.com/awsdevopsteam/route-53/master/ken.jpg
+```
+9. restart the Nginx Web Server.
+```
+sudo systemctl restart nginx
+```
+10. configure to start while launching
+```
+sudo systemctl enable nginx
+```
+11. Check if the Web Server is working properly from the browser.
 
+12. to add another content change the permissions of folder /usr/share/nginx/html.(If you haven't before)
+```
+sudo chmod -R 777 /usr/share/nginx/html
+```
+# The command chmod -R 777 / makes every single file on the system under / (root) have rwxrwxrwx permissions. This is equivalent to allowing ALL users read/write/execute permissions.
+13. Add another index.html file 
+```
+echo "Second Page" > /usr/share/nginx/html/index_2.html
+```
+14. add "/index_2.html" at the end of the the public DNS 
+http://ec2-54-144-132-10.compute-1.amazonaws.com/index_2.html
 
-30. Select `Actions` ---> `Launch instance from template`.
-
-
-Number of Instance : 1
-
-
-31. Click the 'launch Instance from template' button at the bottom.
-
-32. Go to `Instance Menu` and show recently created EC2 instance.
-
-33. Copy EC2's 'Public IP`, paste it in a browser and show 'nginx' webpage.
-### Step 2: Launch Template Version 3
-34. Go to `Launch Template` menu on the left hand pane.
-35. Select template named `MyClaruswayTemplate` ---> `Actions` ---> 'Modify template (Create New Version)'.
-36.  Template version description
-V3 nginx
-37. Key pair
-Select your .pem file name
-38. Resource tags
-Key             : Name
-Value           : Webserver-V3
-Resource type   : Instance
-39. Go to `Advance Details` on the bottom and add the script given below into the `user data` field.
+## Part 3 - Automation of Web Server Installation through Bash Script (User data)
+15. Launch an Amazon 2 EC2 instance with AMI as `Amazon Linux 2`, instance type as `t2.micro` and security 
+group which allows connections from anywhere for port 22(SSH) and port 80(HTTP).
+16. Configure instance to automate web server installation with `user data` script.
 ```
 #! /bin/bash
 yum update -y
@@ -207,13 +118,9 @@ wget https://raw.githubusercontent.com/awsdevopsteam/route-53/master/ken.jpg
 systemctl restart nginx
 systemctl enable nginx
 ```
-
-40. Go to `Launch Template` Menu and click on `MyClaruswayTemplate`.
-41. Select version `3` from the `Versions` tab.
-Version         : 3
-Description     : V3 nginx
-42. Select `Actions` ---> `Launch instance from template`.
-Number of Instance : 1
-43. Click the `launch Instance from template` button at the bottom.
-44. Go to `Instance Menu` and show recently created EC2 instance.
-45. Copy EC2's `Public IP`, paste it in a browser and show `nginx` webpage with custom image.
+17. Review and launch the EC2 Instance
+18. Once Instance is on, check if the Nginx Web Server is working from the web browser.
+19. Connect the Nginx Web Server from the terminal with `curl` command.
+```
+curl http://ec2-3-15-183-78.us-east-2.compute.amazonaws.com
+```
