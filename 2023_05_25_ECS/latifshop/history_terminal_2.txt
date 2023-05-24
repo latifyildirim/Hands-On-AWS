@@ -1,0 +1,13 @@
+    1  cd latifshop/
+    2  ls
+    3  copilot init
+    4  copilot app ls
+    5  copilot app show
+    6  copilot env ls
+    7  copilot svc show
+    8  copilot svc ls
+    9  copilot svc logs
+   10  copilot svc status
+   11  copilot app delete
+   12  history
+   13  history > history_terminal_2.txt

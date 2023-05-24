@@ -1,0 +1,19 @@
+{
+	"family": "latifshop-task-awscli",
+	"networkMode": "awsvpc",
+	"containerDefinitions": [{
+		"name": "latifshop-app",
+		"image": "768013060882.dkr.ecr.us-east-1.amazonaws.com/latifshop",
+		"portMappings": [{
+			"containerPort": 80,
+			"protocol": "tcp"
+		}],
+		"essential": true
+	}],
+	"requiresCompatibilities": [
+		"FARGATE"
+	],
+	"cpu": "256",
+	"memory": "512",
+      "executionRoleArn": "arn:aws:iam::768013060882:role/ecsTaskExecutionRole"
+}

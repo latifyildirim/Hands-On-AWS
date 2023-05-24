@@ -1,0 +1,21 @@
+    1  aws --version
+    2  dowcker --version
+    3  docker --version
+    4  aws configure
+    5  cd latifshop
+    6  docker build -t latifshop .
+    7  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 768013060882.dkr.ecr.us-east-1.amazonaws.com
+    8  docker tag latifshop:latest 768013060882.dkr.ecr.us-east-1.amazonaws.com/latifshop:latest
+    9  docker push 768013060882.dkr.ecr.us-east-1.amazonaws.com/latifshop:latest
+   10  docker images
+   11  aws ecs create-cluster --cluster-name cluster-with-awscli
+   12  aws ecs register-task-definition --cli-input-json file://latifshop-task.json
+   13  aws ecs create-service --cluster cluster-with-awscli --service-name latifshop-service --task-definition latifshop-task-awscli --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-085b5d752b79bd6d2],securityGroups=[sg-0df72f6225ba17c3d],assignPublicIp=ENABLED}"
+   14  aws ecs list-services --cluster cluster-with-awscli
+   15  aws ecs describe-services --cluster cluster-with-awscli --services latifshop-service
+   16  [200~aws ecs delete-service --cluster cluster-with-awscli --service latifshop-service --force~
+   17  aws ecs delete-service --cluster cluster-with-awscli --service latifshop-service --forceaws ecs delete-service --cluster cluster-with-awscli --service latifshop-service --forceaws ecs delete-service --cluster cluster-with-awscli --service latifshop-service --forceaws ecs delete-service --cluster cluster-with-awscli --service latifshop-service --force
+   18  aws ecs delete-service --cluster cluster-with-awscli --service latifshop-service --force
+   19  aws ecs delete-cluster --cluster cluster-with-awscli
+   20  sudo curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux    && sudo chmod +x /usr/local/bin/copilot    && copilot --help
+   21  history > history_terminal_1.txt
