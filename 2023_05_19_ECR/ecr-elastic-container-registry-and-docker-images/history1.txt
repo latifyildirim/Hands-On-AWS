@@ -1,0 +1,75 @@
+    1  docker --version
+    2  aws --version
+    3  aws -v
+    4  docker run -it public.ecr.aws/amazonlinux/amazonlinux:2.0.20230504.1-amd64 bash
+    5  ll
+    6  pwd
+    7  cd .aws
+    8  pwd
+    9  cd ..
+   10  docker run --rm --name aws-cli -v /home/ec2-user/.aws/config:/.aws/config -v /home/ec2-user/.aws/credentials:/.aws/credentials bitnami/aws-cli:latest s3 ls
+   11  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 768013060882.dkr.ecr.us-east-1.amazonaws.com
+   12  wget https://github.com/awsdevopsteam/jenkins-first-project/raw/master/to-do-app-nodejs.tar
+   13  tar -xvf to-do-app-nodejs.tar 
+   14  cd to-do-app-nodejs/
+   15  ls
+   16  vi Dockerfile
+   17  docker build -t todo-app:latest .
+   18  docker image ls
+   19  docker run --name todo -d -p 80:3000 todo-app
+   20  docker ps
+   21  docker rm c
+   22  docker rm f 
+   23  docker rm f  c
+   24  docker rm -f
+   25  docker rm todo
+   26  docker rm stop
+   27  docker rm stop c
+   28  docker delete c
+   29  docker rm c909f6b77781
+   30  docker rm stop  c909f6b77781
+   31  docker  stop  c909f6b77781
+   32  docker rm c909f6b77781
+   33  docker ls
+   34  docker image ls
+   35  docker tag todo-app:latest 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   36  docker image ls
+   37  docker push 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   38  bash
+   39  ls
+   40  ll
+   41  cd to-do-app-nodejs/
+   42  ll
+   43  docker build -t todo-app:latest .
+   44  docker images
+   45  docker services
+   46  docker service
+   47  docker service ls
+   48  docker run --name todo -d -p 80:3000 todo-app
+   49  docker rm -f todo
+   50  docker ps
+   51  docker tag todo-app:latest 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   52  docker images
+   53  docker push 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   54  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 768013060882.dkr.ecr.us-east-1.amazonaws.com
+   55  docker push 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   56  docker pull 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   57  docker images
+   58  docker run --name todo -dp 80:3000 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   59  docker rm -f todo
+   60  docker build -t todo-app:latest .
+   61  docker images
+   62  docker tag todo-app:latest 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   63  docker images
+   64  docker push 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   65  docker run --name todo-v1 -dp 80:3000 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   66  docker rm -f todo-v1
+   67  aws ecr create-repository     --repository-name latif2-repo/todo-app     --image-scanning-configuration scanOnPush=true     --region us-east-1
+   68  aws ecr create-repository     --repository-name latif2-repo/todo-app     --image-scanning-configuration scanOnPush=false     --image-tag-mutability IMMUTABLE     --region us-east-1aws ecr create-repository     --repository-name latif2-repo/todo-app     --image-scanning-configuration scanOnPush=false     --image-tag-mutability IMMUTABLE     --region us-east-1ddaws ecr create-repository     --repository-name latif2-repo/todo-app     --image-scanning-configuration scanOnPush=false     --image-tag-mutability IMMUTABLE     --region us-east-1aws ecr create-repository     --repository-name latif2-repo/todo-app     --image-scanning-configuration scanOnPush=false     --image-tag-mutability IMMUTABLE     --region us-east-1
+   69  aws ecr create-repository     --repository-name latif2-repo/todo-app     --image-scanning-configuration scanOnPush=false     --image-tag-mutability IMMUTABLE     --region us-east-1
+   70  docker build -t latif2-repo/todo-app .
+   71  docker tag latif2-repo/todo-app:latest 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif2-repo/todo-app:latest
+   72  docker push 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif2-repo/todo-app:latest
+   73  docker image ls
+   74  cd ..
+   75  history > history.txt

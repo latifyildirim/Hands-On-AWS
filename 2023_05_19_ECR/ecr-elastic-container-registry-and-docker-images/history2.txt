@@ -1,0 +1,75 @@
+    1  docker --version
+    2  aws --version
+    3  aws -v
+    4  docker run -it public.ecr.aws/amazonlinux/amazonlinux:2.0.20230504.1-amd64 bash
+    5  ll
+    6  pwd
+    7  cd .aws
+    8  pwd
+    9  cd ..
+   10  docker run --rm --name aws-cli -v /home/ec2-user/.aws/config:/.aws/config -v /home/ec2-user/.aws/credentials:/.aws/credentials bitnami/aws-cli:latest s3 ls
+   11  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 768013060882.dkr.ecr.us-east-1.amazonaws.com
+   12  wget https://github.com/awsdevopsteam/jenkins-first-project/raw/master/to-do-app-nodejs.tar
+   13  tar -xvf to-do-app-nodejs.tar 
+   14  cd to-do-app-nodejs/
+   15  ls
+   16  vi Dockerfile
+   17  docker build -t todo-app:latest .
+   18  docker image ls
+   19  docker run --name todo -d -p 80:3000 todo-app
+   20  docker ps
+   21  docker rm c
+   22  docker rm f 
+   23  docker rm f  c
+   24  docker rm -f
+   25  docker rm todo
+   26  docker rm stop
+   27  docker rm stop c
+   28  docker delete c
+   29  docker rm c909f6b77781
+   30  docker rm stop  c909f6b77781
+   31  docker  stop  c909f6b77781
+   32  docker rm c909f6b77781
+   33  docker ls
+   34  docker image ls
+   35  docker tag todo-app:latest 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   36  docker image ls
+   37  docker push 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif-repo/todo-app:latest
+   38  bash
+   39  docker images
+   40  docker rm -f $(docker ps -aq)
+   41  docker images
+   42  docker rm -f $(docker images -aq)
+   43  docker images
+   44  docker rm -f $(docker images )
+   45  docker images
+   46  docker rm -f $(docker image)
+   47  docker rm -f $(docker image ls)
+   48  docker images
+   49  docker rm -f $(docker image -a)
+   50  docker rm -f $(docker image -aq)
+   51  docker rm -f $(docker images -aq)
+   52  docker rm -f $(-doorcecker images -aq)
+   53  docker rm -force $(docker images -aq)
+   54  docker rm --force $(docker images -aq)
+   55  docker image -aq
+   56  docker images -aq
+   57  docker rm -f $(docker images -aq)
+   58  docker image rm -f $(docker images -aq)
+   59  docker images
+   60  cd to-do-app-nodejs/
+   61  docker pull 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif2-repo/todo-app:latest
+   62  docker run -dp 80:3000 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif2-repo/todo-app:latest
+   63  docker image rm -f $(docker images -aq)
+   64  docker  rm -f $(docker images -aq)
+   65  docker image rm -f $(docker images -aq)
+   66  docker image rm -f $(docker ps -aq)
+   67  docker rm -f $(docker ps -aq)
+   68  docker image rm -f $(docker images -aq)
+   69  docker images
+   70  docker run -ps
+   71  docker run -dp 80:3000 768013060882.dkr.ecr.us-east-1.amazonaws.com/latif2-repo/todo-app:latest
+   72  aws ecr batch-delete-image       --repository-name latif2-repo/todo-app       --image-ids imageTag=latest
+   73  [200~aws ecr delete-repository       --repository-name latif2-repo/todo-app       --force~
+   74  aws ecr delete-repository       --repository-name latif2-repo/todo-app       --force
+   75  history > history2.txt
